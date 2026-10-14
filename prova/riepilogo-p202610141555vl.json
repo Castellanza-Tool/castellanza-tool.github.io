@@ -1,0 +1,20 @@
+{
+  "id": "p202610141555vl",
+  "creato": "2026-10-14T13:57:12.000Z",
+  "sintesi": "Ho aggiunto in testa un avviso in evidenza fino al 21 ottobre sul cantiere in via Piave, prima del ponte sull’Olona, con senso unico alternato a semaforo dalle 8 alle 17 dal 19 al 21 ottobre e il consiglio di usare via Luigi Morelli verso Marnate. Ho aggiunto la situazione per il 19-21 ottobre e, poiché il testo dice che il cantiere si sposta, ho chiuso al 18 ottobre la situazione di via Sempione (prima indicata fino al 23) e l'evidenza del relativo avviso. Sul tratto di via Piave ho inserito date e nota, lasciandolo programmato.",
+  "testo_whatsapp": "Lavori CAP Holding, cambia il cantiere. Da lunedì 19 a mercoledì 21 ottobre compreso i lavori si spostano in via Piave, prima del ponte sull’Olona. Dalle 8 alle 17 senso unico alternato regolato da semaforo. Il consiglio è evitare via Piave e, per andare verso Marnate, passare da via Luigi Morelli. Tutti gli aggiornamenti: https://castellanza-tool.github.io/prova/",
+  "dubbi": [
+    "Il testo dice che il cantiere si sposta in via Piave dal 19: non è chiaro se il cantiere di via Sempione tra via per Olgiate e via Isonzo (indicato fino al 23) finisce davvero il 18 e se il divieto di svolta a sinistra in via Piave resta in vigore. Ho chiuso quella fase al 18 ottobre: da confermare.",
+    "Non è indicato cosa succede fuori dalla fascia 8-17 (doppio senso ripristinato o no).",
+    "'Prima del ponte sull'Olona' non dice da quale lato: serve il punto esatto.",
+    "Non è indicato cosa accade dal 22 ottobre in poi.",
+    "Il testo originale cita la presenza della Polizia Locale: per regola non è stata nominata, nell'avviso si parla genericamente di personale addetto nelle ore di punta.",
+    "Il percorso 'marnate' ha ancora il titolo 'Verso Marnate da venerdì 16 ottobre, senza svoltare in via Piave'; i percorsi non sono stati modificati."
+  ],
+  "da_fare_a_mano": [
+    "Il tratto 'piave-ponte-olona' copre tutta via Piave e il ponte: per mostrare solo il punto del cantiere va disegnato un tratto specifico.",
+    "Lo stato dei tratti non dipende dalle date: lunedì 19 il tratto di via Piave va portato a 'in_corso' (e quello di via Sempione aggiornato se la fase è conclusa).",
+    "Valutare se aggiornare titolo e testo del percorso verso Marnate per il periodo 19-21 ottobre."
+  ],
+  "stato": "proposta"
+}
