@@ -1,0 +1,19 @@
+{
+  "id": "p2026101416003x",
+  "creato": "2026-10-14T14:01:20.000Z",
+  "sintesi": "Ho aggiunto in testa un avviso in evidenza fino al 21 ottobre sul cantiere in via Piave, prima del ponte sull’Olona, con senso unico alternato a semaforo dalle 8 alle 17 dal 19 al 21 ottobre e il consiglio di passare da via Luigi Morelli verso Marnate. Il tratto di via Piave diventa rosso sulla mappa solo dal 19 al 21 e c’è una nuova situazione per quei giorni. Visto che il testo dice che il cantiere «si sposta», ho chiuso al 18 ottobre la fase di via Sempione tra via per Olgiate e via Isonzo (situazione, tratto temporaneo ed evidenza dell’avviso), che prima era indicata fino al 23.",
+  "testo_whatsapp": "Lavori CAP Holding, il cantiere cambia posto. Da lunedì 19 a mercoledì 21 ottobre compreso i lavori sono in via Piave, prima del ponte sull’Olona. Dalle 8 alle 17 si passa a senso unico alternato regolato da semaforo. Il consiglio è evitare via Piave e, per andare verso Marnate, passare da via Luigi Morelli. Tutti gli aggiornamenti: https://castellanza-tool.github.io/prova/",
+  "dubbi": [
+    "Il testo dice che il cantiere si sposta in via Piave dal 19, ma la fase di via Sempione tra via per Olgiate e via Isonzo era indicata fino al 23. Ho chiuso quella fase al 18 ottobre: va confermato, così come il divieto di svolta a sinistra in via Piave per chi arriva da Busto Arsizio, che con il nuovo testo non si sa se resta.",
+    "Non è indicato come si circola in via Piave fuori dalla fascia 8-17.",
+    "«Prima del ponte sull’Olona» non dice da quale lato del ponte.",
+    "Non è indicato cosa succede dal 22 ottobre.",
+    "Il testo cita la presenza della Polizia Locale: per regola non l’ho nominata, nell’avviso si parla genericamente di personale addetto alla gestione del traffico nelle ore di punta.",
+    "Il percorso «marnate» ha ancora un titolo legato a venerdì 16 ottobre e al divieto di svolta in via Piave: i percorsi non li ho toccati."
+  ],
+  "da_fare_a_mano": [
+    "Il tratto «piave-ponte-olona» copre tutta via Piave e il ponte: per mostrare solo il punto del cantiere va disegnato un tratto temporaneo apposito.",
+    "Valutare se aggiornare titolo e testo del percorso verso Marnate per il periodo 19-21 ottobre."
+  ],
+  "stato": "proposta"
+}
