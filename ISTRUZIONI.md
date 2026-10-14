@@ -1,0 +1,24 @@
+# Pagina cantieri – come si aggiorna
+
+Pagina pubblica: https://castellanza-tool.github.io/
+Incorporata nel sito del Comune di Castellanza con un iframe.
+
+Tutto il contenuto sta in `dati.json`. La pagina lo rilegge ogni minuto, quindi basta modificare il file e fare commit su `main`. GitHub Pages lo pubblica in circa un minuto.
+
+## Procedura (per Claude)
+
+1. Stefano manda l'informazione: una mail degli uffici, un'ordinanza, un appunto.
+2. Si scrive un avviso chiaro per i cittadini e lo si aggiunge in cima ad `aggiornamenti`. Deve dire cosa cambia, dove, da quando, per chi e qual è l'alternativa.
+3. Si aggiorna `settings.situazioneOggi` se cambia la situazione del giorno (stringa vuota = riquadro nascosto).
+4. Si aggiorna lo `stato` dei tratti: `programmato`, `in_corso` oppure `concluso`.
+5. Si aggiorna `aggiornatoIl` con l'ora attuale in formato ISO. È il valore che fa ridisegnare la pagina ai visitatori.
+6. Si valida il JSON, si fa commit e push, e si restituisce a Stefano il testo pronto per WhatsApp.
+
+## Regole
+
+- Si pubblica solo ciò che è scritto nell'informazione ricevuta. Niente date, orari o percorsi dedotti.
+- Se manca qualcosa di essenziale, o se una misura risulta solo proposta e non confermata, si chiede prima di pubblicare.
+- `inEvidenza: true` va solo sull'avviso più importante del momento. Quando viene superato, si toglie dal precedente.
+- `tipo` può essere `viabilita`, `avviso`, `urgente` oppure `concluso`.
+- Sulla gestione del traffico e la sicurezza del cantiere si resta generici (es. "il traffico all'incrocio è regolato da personale addetto"), senza nominare uffici o comandi comunali.
+- `coords` dei tratti: un elenco di [lat, lng] lungo la strada. Se è vuoto, la mappa resta nascosta.
