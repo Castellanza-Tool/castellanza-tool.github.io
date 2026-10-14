@@ -56,7 +56,10 @@
   function render(dOrig) {
     var oggi = oggiRoma(); giornoMostrato = oggi;
     var d = Object.assign({}, dOrig);
-    d.tratti = (dOrig.tratti || []).filter(function (t) { return attivo(t, oggi); });
+    d.tratti = (dOrig.tratti || []).filter(function (t) { return attivo(t, oggi); }).map(function (t) {
+      if ((t.inCorsoDal || t.inCorsoAl) && attivo({ dal: t.inCorsoDal, al: t.inCorsoAl }, oggi)) return Object.assign({}, t, { stato: 'in_corso' });
+      return t;
+    });
     d.percorsi = (dOrig.percorsi || []).filter(function (p) { return attivo(p, oggi); });
     d.settings = Object.assign({}, dOrig.settings);
     var sit = (d.settings.situazioni || []).filter(function (x) { return attivo(x, oggi); })[0];

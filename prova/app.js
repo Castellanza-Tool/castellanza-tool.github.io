@@ -56,7 +56,10 @@
   function render(dOrig) {
     var oggi = oggiRoma(); giornoMostrato = oggi;
     var d = Object.assign({}, dOrig);
-    d.tratti = (dOrig.tratti || []).filter(function (t) { return attivo(t, oggi); });
+    d.tratti = (dOrig.tratti || []).filter(function (t) { return attivo(t, oggi); }).map(function (t) {
+      if ((t.inCorsoDal || t.inCorsoAl) && attivo({ dal: t.inCorsoDal, al: t.inCorsoAl }, oggi)) return Object.assign({}, t, { stato: 'in_corso' });
+      return t;
+    });
     d.percorsi = (dOrig.percorsi || []).filter(function (p) { return attivo(p, oggi); });
     d.settings = Object.assign({}, dOrig.settings);
     var sit = (d.settings.situazioni || []).filter(function (x) { return attivo(x, oggi); })[0];
@@ -188,7 +191,7 @@
   window.addEventListener('resize', inviaAltezza);
 
   function carica() {
-    fetch(FILE_DATI + '?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) {
+    fetch(FILE_DATI + '?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { if (!r.ok) throw { attesa: true }; return r.json(); }).then(function (d) {
       if (d.aggiornatoIl === ultimaVersione && oggiRoma() === giornoMostrato) return;
       ultimaVersione = d.aggiornatoIl;
       render(d);
@@ -197,7 +200,12 @@
         if (el) el.scrollIntoView();
       }
       primoCaricamento = false;
-    }).catch(function () {
+    }).catch(function (e) {
+      if (e && e.attesa && FILE_DATI !== 'dati.json') {
+        $('stamp').textContent = 'Anteprima in preparazione: la pagina si aggiorna da sola appena è pronta (di solito due-quattro minuti).';
+        setTimeout(carica, 15000);
+        return;
+      }
       $('stamp').textContent = 'Connessione assente: i dati potrebbero non essere aggiornati';
     });
   }
