@@ -8,17 +8,17 @@
     "situazioni": [
       {
         "al": "2026-10-15",
-        "testo": "Fino a giovedì 15 ottobre il cantiere occupa via Sempione all’altezza di via per Olgiate e il traffico è regolato dal semaforo di cantiere. Nelle ore di punta le code arrivano fino all’incrocio con via Pomini, via Piave e corso Matteotti: impegnate l’incrocio solo se siete sicuri di poterlo liberare e, se potete, scegliete un percorso alternativo."
+        "testo": "Fino a giovedì 15 ottobre il cantiere è su via Sempione all’altezza di via per Olgiate, con semaforo. Nelle ore di punta le code arrivano fino all’incrocio con via Piave: se potete, usate i percorsi alternativi."
       },
       {
         "dal": "2026-10-16",
-        "testo": "Da venerdì 16 ottobre, indicativamente fino a venerdì 23, il cantiere è su via Sempione tra via per Olgiate e via Isonzo. Chi arriva da Busto Arsizio non può svoltare a sinistra in via Piave: si prosegue diritto in corso Matteotti oppure si svolta a destra in via Pomini. Per raggiungere Marnate è consigliato il percorso da via Luigi Morelli, a Olgiate Olona.",
+        "testo": "Dal 16 ottobre il cantiere è su via Sempione tra via per Olgiate e via Isonzo. Chi arriva da Busto Arsizio non può svoltare a sinistra in via Piave.",
         "al": "2026-10-18"
       },
       {
         "dal": "2026-10-19",
         "al": "2026-10-21",
-        "testo": "Da lunedì 19 a mercoledì 21 ottobre il cantiere è in via Piave, prima del ponte sull’Olona. Dalle 8 alle 17 si passa a senso unico alternato regolato da semaforo. Se potete evitate via Piave: per andare verso Marnate è consigliato il percorso da via Luigi Morelli."
+        "testo": "Dal 19 al 21 ottobre il cantiere è in via Piave, prima del ponte sull’Olona: dalle 8 alle 17 senso unico alternato con semaforo. Se potete, evitate via Piave."
       }
     ]
   },
@@ -490,7 +490,7 @@
       "inEvidenza": false
     }
   ],
-  "aggiornatoIl": "2026-10-14T14:02:17.000Z",
+  "aggiornatoIl": "2026-10-15T08:17:07.000Z",
   "percorsi": [
     {
       "id": "busto-legnano",

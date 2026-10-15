@@ -70,15 +70,11 @@
     datiCorrenti = d;
     var s = d.settings || {};
     $('titolo').textContent = s.titolo || '';
-    $('sottotitolo').textContent = s.sottotitolo || '';
     $('stamp').textContent = 'Ultimo aggiornamento: ' + fmtData(d.aggiornatoIl, true);
     document.title = (s.titolo || 'Cantieri') + ' – Comune di Castellanza';
 
     if (s.situazioneOggi) { $('oggi').hidden = false; $('oggiTesto').innerHTML = paragrafi(s.situazioneOggi); }
     else { $('oggi').hidden = true; }
-
-    var ev = d.aggiornamenti.filter(function (a) { return a.inEvidenza || a.tipo === 'urgente'; });
-    $('evidenza').innerHTML = ev.length ? '<h2>In evidenza</h2>' + ev.map(function (a) { return card(a, d.tratti, true); }).join('') : '';
 
     // Mappa
     livello.clearLayers(); linee = {};
@@ -114,19 +110,15 @@
       pl.addTo(livello); pl.bringToBack(); linee['perc-' + p.id] = pl;
       (p.linee || [p.coords]).forEach(function (l) { bounds = bounds.concat(l); });
     });
-    $('percorsi').innerHTML = percorsi.length ? '<h3>Percorsi alternativi consigliati</h3>' + percorsi.map(function (p) {
-      var ind = (p.indicazioni || []).map(function (dir) {
-        return '<div class="direzione"><h4>' + esc(dir.titolo) + '</h4><ol class="passi">' + dir.passi.map(function (x) {
-          return '<li><span>' + esc(x.testo) + '</span>' + (x.distanza ? '<span class="dist">' + esc(x.distanza) + '</span>' : '') + '</li>';
-        }).join('') + '</ol>' +
-          (dir.mappa && /^https:\/\/www\.google\.com\/maps\//.test(dir.mappa)
-            ? '<a class="btn-maps" style="background:' + esc(p.colore) + '" href="' + esc(dir.mappa) + '" target="_blank" rel="noopener">Apri il percorso in Google Maps</a>' : '') +
-          '</div>';
-      }).join('');
-      return '<div class="percorso"><span class="sw-p" style="background:' + esc(p.colore) + '"></span><div class="percorso-corpo">' +
-        '<button type="button" class="link-tratto tit" data-tratto="perc-' + esc(p.id) + '">' + esc(p.titolo) + '</button>' +
-        (p.testo ? paragrafi(p.testo) : '') + '<div class="direzioni">' + ind + '</div></div></div>';
-    }).join('') : '';
+    var pulsanti = [];
+    percorsi.forEach(function (p) {
+      (p.indicazioni || []).forEach(function (dir) {
+        if (dir.mappa && /^https:\/\/www\.google\.com\/maps\//.test(dir.mappa)) {
+          pulsanti.push('<a class="btn-maps" style="background:' + esc(p.colore) + '" href="' + esc(dir.mappa) + '" target="_blank" rel="noopener">' + esc(dir.titolo) + '</a>');
+        }
+      });
+    });
+    $('percorsi').innerHTML = pulsanti.length ? '<h2>Percorsi alternativi: apriteli in Google Maps</h2><div class="pulsanti">' + pulsanti.join('') + '</div>' : '';
     // legenda dentro la mappa
     var voci = ['<div><span class="lg tratteggio"></span>Tracciato completo dei lavori</div>'];
     if (d.tratti.some(function (t) { return t.stato === 'in_corso'; })) voci.push('<div><span class="lg" style="background:' + COLORI.in_corso + '"></span>Cantiere in corso</div>');
@@ -135,36 +127,11 @@
     legendaMappa.getContainer().innerHTML = voci.join('');
     var conLinee = bounds.length > 0;
     $('map').style.display = conLinee ? '' : 'none';
-    document.querySelector('#mappaBox h2').textContent = conLinee ? 'Dove sono i cantieri' : 'Le strade interessate dai lavori';
     if (conLinee) map.invalidateSize();
     $('notaMappa').textContent = conLinee ? (s.notaMappa || '') : '';
     if (primoFit && bounds.length) { map.fitBounds(bounds, { padding: [24, 24] }); primoFit = false; }
 
-    var ordine = { in_corso: 0, programmato: 1, concluso: 2 };
-    $('legenda').innerHTML = d.tratti.slice().sort(function (a, b) { return ordine[a.stato] - ordine[b.stato]; }).map(function (t) {
-      return '<li><span class="sw ' + esc(t.stato) + '"></span><span>' +
-        (linee[t.id] ? '<button type="button" class="link-tratto" data-tratto="' + esc(t.id) + '">' + esc(t.nome) + '</button>' : esc(t.nome)) +
-        ' <span class="stato">· ' + esc(ETICHETTE_STATO[t.stato]) + '</span></span></li>';
-    }).join('');
-
-    // Filtro
-    var sel = $('filtroTratto'); var cur = sel.value;
-    sel.innerHTML = '<option value="">Tutte le strade</option>' + d.tratti.map(function (t) {
-      return '<option value="' + esc(t.id) + '">' + esc(t.nome) + '</option>';
-    }).join('');
-    sel.value = cur;
-    renderLista();
-
     $('contatti').innerHTML = s.contatti ? paragrafi(s.contatti) : '';
-    inviaAltezza();
-  }
-
-  function renderLista() {
-    var d = datiCorrenti; if (!d) return;
-    var f = $('filtroTratto').value;
-    var lista = d.aggiornamenti.filter(function (a) { return !f || a.trattoId === f; });
-    $('lista').innerHTML = lista.length ? lista.map(function (a) { return card(a, d.tratti, false); }).join('') :
-      '<p class="vuoto">Nessun aggiornamento per questa strada.</p>';
     inviaAltezza();
   }
 
@@ -176,11 +143,8 @@
       else map.setView(linee[id].getLatLng(), 17);
       linee[id].openPopup();
       $('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else {
-      $('filtroTratto').value = id; renderLista();
     }
   });
-  $('filtroTratto').addEventListener('change', renderLista);
 
   // Altezza automatica dell'iframe nel sito del Comune
   function inviaAltezza() {
