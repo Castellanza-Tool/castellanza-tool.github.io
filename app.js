@@ -85,7 +85,7 @@
     var tratti = d.tratti.slice().sort(function (a, b) { return sopra[a.stato] - sopra[b.stato]; });
     // 1) tracciato completo tratteggiato sotto a tutto
     tratti.forEach(function (t) {
-      if (!t.coords || t.coords.length < 2) return;
+      if (!t.coords || t.coords.length < 2 || t.stato !== 'programmato') return;
       L.polyline(t.coords, { color: COLORI.programmato, weight: 5, opacity: .9, dashArray: '8 8', interactive: false }).addTo(livello);
     });
     // 2) tratti conclusi e in corso sopra il tratteggio
@@ -122,8 +122,10 @@
     });
     $('percorsi').innerHTML = pulsanti.length ? '<h2>Percorsi alternativi: apriteli in Google Maps</h2><div class="pulsanti">' + pulsanti.join('') + '</div>' : '';
     // legenda dentro la mappa
-    var voci = ['<div><span class="lg tratteggio"></span>Tracciato completo dei lavori</div>'];
-    if (d.tratti.some(function (t) { return t.stato === 'in_corso'; })) voci.push('<div><span class="lg" style="background:' + COLORI.in_corso + '"></span>Cantiere in corso</div>');
+    var voci = [];
+    if (d.tratti.some(function (t) { return t.stato === 'programmato'; })) voci.push('<div><span class="lg tratteggio"></span>Tracciato completo dei lavori</div>');
+    var inCorso = d.tratti.filter(function (t) { return t.stato === 'in_corso'; });
+    if (inCorso.length) voci.push('<div><span class="lg" style="background:' + COLORI.in_corso + '"></span>' + esc(inCorso[0].legenda || 'Cantiere in corso') + '</div>');
     if (d.tratti.some(function (t) { return t.stato === 'concluso'; })) voci.push('<div><span class="lg" style="background:' + COLORI.concluso + '"></span>Lavori conclusi</div>');
     percorsi.forEach(function (p) { voci.push('<div><span class="lg" style="background:' + esc(p.colore) + '"></span>' + esc(p.etichetta || 'Percorso alternativo consigliato') + '</div>'); });
     legendaMappa.getContainer().innerHTML = voci.join('');
