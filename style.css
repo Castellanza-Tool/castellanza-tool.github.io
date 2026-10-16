@@ -93,3 +93,12 @@ select { padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; b
 .btn-maps::before { content: ""; width: 10px; height: 10px; border-radius: 50%; border: 2px solid #fff; }
 .btn-maps:hover, .btn-maps:focus { background: #1e40af; }
 .nota-maps { margin: 10px 0 0; font-size: .82rem; color: var(--muted); }
+
+.intro { margin-top: 18px; font-size: 1.05rem; }
+.intro p { margin: 0 0 6px; }
+.intro p:last-child { margin-bottom: 0; }
+.mappa-box { margin-top: 18px; }
+.percorsi h2 { font-size: 1.05rem; margin: 0; }
+.pulsanti { display: flex; flex-wrap: wrap; gap: 10px; }
+.pulsanti .btn-maps { margin-top: 0; }
+@media (max-width: 600px) { .pulsanti .btn-maps { width: 100%; justify-content: center; } }
