@@ -20,7 +20,8 @@
   var datiCorrenti = null;
   var primoFit = true;
 
-  function $(id) { return document.getElementById(id); }
+  var finto = document.createElement('div');
+  function $(id) { return document.getElementById(id) || finto; } // un elemento mancante non blocca la pagina
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -157,7 +158,8 @@
     fetch(FILE_DATI + '?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { if (!r.ok) throw { attesa: true }; return r.json(); }).then(function (d) {
       if (d.aggiornatoIl === ultimaVersione && oggiRoma() === giornoMostrato) return;
       ultimaVersione = d.aggiornatoIl;
-      render(d);
+      try { render(d); mostrato = true; }
+      catch (err) { ultimaVersione = null; avviso('Non riusciamo a mostrare gli aggiornamenti. Ricaricate la pagina tra qualche istante.'); return; }
       if (location.hash && primoCaricamento) {
         var el = document.querySelector(location.hash);
         if (el) el.scrollIntoView();
@@ -169,10 +171,16 @@
         setTimeout(carica, 15000);
         return;
       }
-      $('stamp').textContent = 'Connessione assente: i dati potrebbero non essere aggiornati';
+      avviso(mostrato ? 'Connessione assente: i dati potrebbero non essere aggiornati' : 'Non riusciamo a caricare gli aggiornamenti. Controllate la connessione e ricaricate la pagina.');
     });
   }
   var primoCaricamento = true;
+  var mostrato = false;
+  function avviso(t) { var el = $('stamp'); el.textContent = t; }
+  // se dopo 12 secondi non è comparso nulla, lo diciamo invece di lasciare "Caricamento…"
+  setTimeout(function () {
+    if (!mostrato && FILE_DATI === 'dati.json') avviso('Il caricamento sta richiedendo più del previsto. Ricaricate la pagina.');
+  }, 12000);
   carica();
   setInterval(carica, REFRESH_MS);
   document.addEventListener('visibilitychange', function () { if (!document.hidden) carica(); });
