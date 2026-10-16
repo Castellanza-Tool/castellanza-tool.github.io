@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cantieri e viabilità – Comune di Castellanza</title>
 <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
-<link rel="stylesheet" href="style.css?v=20261016b">
+<link rel="stylesheet" href="style.css?v=20261016c">
 </head>
 <body>
 <noscript><p style="padding:16px;font:16px system-ui">Per vedere la mappa e gli aggiornamenti serve JavaScript attivo nel browser.</p></noscript>
@@ -16,7 +16,12 @@
     <p class="stamp"><span class="dot" aria-hidden="true"></span><span id="stamp">Caricamento…</span></p>
   </header>
 
+  <section class="presentazione" id="presentazione" hidden>
+    <div id="presTesto"></div>
+  </section>
+
   <section class="intro" id="oggi" hidden>
+    <h2>Come cambia la viabilità</h2>
     <div id="oggiTesto"></div>
   </section>
 
@@ -29,6 +34,6 @@
   <footer class="foot" id="contatti"></footer>
 </main>
 <script src="vendor/leaflet/leaflet.js"></script>
-<script src="app.js?v=20261016b"></script>
+<script src="app.js?v=20261016c"></script>
 </body>
 </html>

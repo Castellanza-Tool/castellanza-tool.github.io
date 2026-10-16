@@ -73,6 +73,8 @@
     $('stamp').textContent = 'Ultimo aggiornamento: ' + fmtData(d.aggiornatoIl, true);
     document.title = (s.titolo || 'Cantieri') + ' – Comune di Castellanza';
 
+    if (s.introduzione) { $('presentazione').hidden = false; $('presTesto').innerHTML = paragrafi(s.introduzione); }
+    else { $('presentazione').hidden = true; }
     if (s.situazioneOggi) { $('oggi').hidden = false; $('oggiTesto').innerHTML = paragrafi(s.situazioneOggi); }
     else { $('oggi').hidden = true; }
 
