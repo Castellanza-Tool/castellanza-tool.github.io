@@ -53,6 +53,19 @@
   }
   function attivo(x, oggi) { return (!x.dal || oggi >= x.dal) && (!x.al || oggi <= x.al); }
   var giornoMostrato = null;
+  var lineeSpostate = [];
+  function spostaLinea(coords, px) {
+    var pts = coords.map(function (c) { return map.latLngToLayerPoint(c); });
+    return pts.map(function (p, i) {
+      var a = pts[Math.max(0, i - 1)], b = pts[Math.min(pts.length - 1, i + 1)];
+      var dx = b.x - a.x, dy = b.y - a.y, len = Math.sqrt(dx * dx + dy * dy) || 1;
+      return map.layerPointToLatLng(L.point(p.x - dy / len * px, p.y + dx / len * px));
+    });
+  }
+  function aggiornaSpostate() {
+    lineeSpostate.forEach(function (s) { s.layer.setLatLngs(spostaLinea(s.coords, s.px)); });
+  }
+  map.on('zoomend', aggiornaSpostate);
   function render(dOrig) {
     var oggi = oggiRoma(); giornoMostrato = oggi;
     var d = Object.assign({}, dOrig);
@@ -106,10 +119,20 @@
     });
     // 3) percorsi alternativi consigliati, sotto al cantiere
     var percorsi = d.percorsi || [];
+    lineeSpostate = [];
     percorsi.forEach(function (p) {
-      var pl = L.polyline(p.linee || p.coords, { color: p.colore, weight: 5, opacity: .8 })
+      var tutte = p.linee || [p.coords];
+      var off = p.offsetLinee || [];
+      var normali = [], spostate = [];
+      tutte.forEach(function (l, i) { if (off[i]) spostate.push({ coords: l, px: off[i] }); else normali.push(l); });
+      var pl = L.polyline(normali, { color: p.colore, weight: 5, opacity: .8 })
         .bindPopup('<strong>' + esc(p.titolo) + '</strong>');
       pl.addTo(livello); pl.bringToBack(); linee['perc-' + p.id] = pl;
+      spostate.forEach(function (s) {
+        var ls = L.polyline(s.coords, { color: p.colore, weight: 5, opacity: .9 }).bindPopup('<strong>' + esc(p.titolo) + '</strong>');
+        ls.addTo(livello);
+        lineeSpostate.push({ layer: ls, coords: s.coords, px: s.px });
+      });
       (p.linee || [p.coords]).forEach(function (l) { bounds = bounds.concat(l); });
     });
     var pulsanti = [];
@@ -134,6 +157,7 @@
     if (conLinee) map.invalidateSize();
     $('notaMappa').textContent = conLinee ? (s.notaMappa || '') : '';
     if (primoFit && bounds.length) { map.fitBounds(bounds, { padding: [24, 24] }); primoFit = false; }
+    aggiornaSpostate();
 
     $('contatti').innerHTML = s.contatti ? paragrafi(s.contatti) : '';
     inviaAltezza();

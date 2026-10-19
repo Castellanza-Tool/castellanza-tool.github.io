@@ -1,7 +1,7 @@
 {
  "settings": {
   "titolo": "Lavori sulla rete dell’acqua: la viabilità aggiornata",
-  "introduzione": "Da lunedì 19 ottobre, a seguito dello spostamento del cantiere di CAP Holding per il rifacimento della rete idrica comunale, cambia la viabilità su via Sempione.\n\nSulla mappa trovate in rosso il tratto chiuso e in blu le deviazioni per Legnano.",
+  "introduzione": "Da lunedì 19 ottobre, a seguito dello spostamento del cantiere di CAP Holding per il rifacimento della rete idrica comunale, cambia la viabilità su via Sempione.\n\nSulla mappa trovate in rosso il tratto chiuso e in blu le deviazioni e le svolte obbligatorie.",
   "situazioni": [
    {
     "testo": "Da lunedì 19 ottobre via Sempione resta chiusa in direzione Legnano a partire dall’intersezione con via Sanguinola. Chi è diretto a Legnano (o agli ingressi autostradali) deve imboccare viale Don Minzoni. Il transito sul Sempione resta consentito in direzione Busto Arsizio ai veicoli provenienti da Castellanza centro.\n\nAi veicoli provenienti da Busto Arsizio e diretti in Valle Olona è obbligatorio svoltare a sinistra alla rotatoria tra via Sempione e via Morelli di Olgiate Olona. Ai veicoli provenienti da Olgiate Olona da via Morelli e diretti a Legnano è obbligatorio girare a sinistra alla rotatoria e poi subito a destra in via Sanguinola. I veicoli provenienti da via per Olgiate Olona e diretti verso via Sempione saranno obbligati a svoltare a destra in via Sempione – direzione Busto Arsizio."
@@ -150,7 +150,7 @@
   {
    "id": "deviazione-legnano",
    "colore": "#1d4ed8",
-   "etichetta": "Deviazioni per Legnano",
+   "etichetta": "Deviazioni e svolte obbligatorie",
    "titolo": "Deviazioni per Legnano",
    "testo": "Chi è diretto a Legnano (o agli ingressi autostradali) deve imboccare viale Don Minzoni. Chi arriva da via Morelli di Olgiate Olona deve girare a sinistra alla rotatoria e poi subito a destra in via Sanguinola.",
    "indicazioni": [],
@@ -1444,7 +1444,146 @@
       45.613083,
       8.887417
      ]
+    ],
+    [
+     [
+      45.616267,
+      8.894455
+     ],
+     [
+      45.616236,
+      8.894476
+     ],
+     [
+      45.615942,
+      8.894655
+     ],
+     [
+      45.615841,
+      8.894713
+     ],
+     [
+      45.615719,
+      8.894789
+     ],
+     [
+      45.61564,
+      8.894835
+     ],
+     [
+      45.615556,
+      8.894882
+     ],
+     [
+      45.615521,
+      8.894899
+     ],
+     [
+      45.615419,
+      8.894948
+     ],
+     [
+      45.615396,
+      8.894958
+     ],
+     [
+      45.615325,
+      8.894988
+     ],
+     [
+      45.615216,
+      8.89498
+     ],
+     [
+      45.615192,
+      8.894979
+     ],
+     [
+      45.615167,
+      8.894978
+     ],
+     [
+      45.615145,
+      8.894974
+     ],
+     [
+      45.615123,
+      8.894969
+     ],
+     [
+      45.615093,
+      8.894959
+     ],
+     [
+      45.61502,
+      8.894908
+     ],
+     [
+      45.615023,
+      8.894848
+     ],
+     [
+      45.615026,
+      8.894799
+     ],
+     [
+      45.615027,
+      8.894763
+     ],
+     [
+      45.615026,
+      8.894724
+     ],
+     [
+      45.615025,
+      8.894681
+     ],
+     [
+      45.615023,
+      8.894652
+     ],
+     [
+      45.615018,
+      8.894588
+     ],
+     [
+      45.615009,
+      8.894505
+     ],
+     [
+      45.614981,
+      8.894267
+     ],
+     [
+      45.614921,
+      8.893781
+     ],
+     [
+      45.614863,
+      8.893329
+     ],
+     [
+      45.614702,
+      8.891912
+     ],
+     [
+      45.614464,
+      8.890014
+     ],
+     [
+      45.614358,
+      8.889139
+     ],
+     [
+      45.614344,
+      8.889026
+     ]
     ]
+   ],
+   "offsetLinee": [
+    0,
+    0,
+    10
    ]
   }
  ],
@@ -1459,5 +1598,5 @@
    "testo": "Da lunedì 19 ottobre via Sempione resta chiusa in direzione Legnano a partire dall’intersezione con via Sanguinola. Chi è diretto a Legnano (o agli ingressi autostradali) deve imboccare viale Don Minzoni. Il transito sul Sempione resta consentito in direzione Busto Arsizio ai veicoli provenienti da Castellanza centro.\n\nAi veicoli provenienti da Busto Arsizio e diretti in Valle Olona è obbligatorio svoltare a sinistra alla rotatoria tra via Sempione e via Morelli di Olgiate Olona. Ai veicoli provenienti da Olgiate Olona da via Morelli e diretti a Legnano è obbligatorio girare a sinistra alla rotatoria e poi subito a destra in via Sanguinola. I veicoli provenienti da via per Olgiate Olona e diretti verso via Sempione saranno obbligati a svoltare a destra in via Sempione – direzione Busto Arsizio."
   }
  ],
- "aggiornatoIl": "2026-10-19T05:49:04.000Z"
+ "aggiornatoIl": "2026-10-19T05:52:12.000Z"
 }
