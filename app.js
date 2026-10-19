@@ -129,7 +129,7 @@
         .bindPopup('<strong>' + esc(p.titolo) + '</strong>');
       pl.addTo(livello); pl.bringToBack(); linee['perc-' + p.id] = pl;
       spostate.forEach(function (s) {
-        var ls = L.polyline(s.coords, { color: p.colore, weight: 5, opacity: .9 }).bindPopup('<strong>' + esc(p.titolo) + '</strong>');
+        var ls = L.polyline(s.coords, { color: p.colore, weight: 3.5, opacity: 1 }).bindPopup('<strong>' + esc(p.titolo) + '</strong>');
         ls.addTo(livello);
         lineeSpostate.push({ layer: ls, coords: s.coords, px: s.px });
       });
