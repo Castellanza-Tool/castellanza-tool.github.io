@@ -6,6 +6,7 @@
   var ETICHETTE_TIPO = { viabilita: 'Viabilità', avviso: 'Avviso', urgente: 'Urgente', concluso: 'Concluso' };
   var REFRESH_MS = 60000;
   var FILE_DATI = 'dati.json';
+  var VERSIONE = '20261026c'; // deve coincidere con settings.versioneApp in dati.json e con ?v= in index.html
 
   var map = L.map('map', { scrollWheelZoom: true }).setView(CENTRO, 15);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -188,6 +189,12 @@
 
   function carica() {
     fetch(FILE_DATI + '?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { if (!r.ok) throw { attesa: true }; return r.json(); }).then(function (d) {
+      // se il programma è stato aggiornato, la pagina si ricarica da sola con il programma nuovo (una volta sola)
+      var vNuova = d.settings && d.settings.versioneApp;
+      if (vNuova && vNuova !== VERSIONE && location.search.indexOf('v=' + vNuova) === -1) {
+        location.replace(location.pathname + '?v=' + encodeURIComponent(vNuova) + location.hash);
+        return;
+      }
       if (d.aggiornatoIl === ultimaVersione && oggiRoma() === giornoMostrato) return;
       ultimaVersione = d.aggiornatoIl;
       try { render(d); mostrato = true; }

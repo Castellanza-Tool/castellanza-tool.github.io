@@ -21,7 +21,8 @@
   ],
   "situazioneOggi": "",
   "contatti": "",
-  "notaMappa": "Il disegno sulla mappa è indicativo. Fonte cartografica: OpenStreetMap."
+  "notaMappa": "Il disegno sulla mappa è indicativo. Fonte cartografica: OpenStreetMap.",
+  "versioneApp": "20261026c"
  },
  "tratti": [
   {
@@ -1624,5 +1625,5 @@
    "testo": "Da lunedì 19 ottobre via Sempione resta chiusa in direzione Legnano a partire dall’intersezione con via Sanguinola. Chi è diretto a Legnano (o agli ingressi autostradali) deve imboccare viale Don Minzoni. Il transito sul Sempione resta consentito in direzione Busto Arsizio ai veicoli provenienti da Castellanza centro.\n\nAi veicoli provenienti da Busto Arsizio e diretti in Valle Olona è obbligatorio svoltare a sinistra alla rotatoria tra via Sempione e via Morelli di Olgiate Olona. Ai veicoli provenienti da Olgiate Olona da via Morelli e diretti a Legnano è obbligatorio girare a sinistra alla rotatoria e poi subito a destra in via Sanguinola. I veicoli provenienti da via per Olgiate Olona e diretti verso via Sempione saranno obbligati a svoltare a destra in via Sempione – direzione Busto Arsizio."
   }
  ],
- "aggiornatoIl": "2026-10-26T08:18:26.000Z"
+ "aggiornatoIl": "2026-10-26T08:20:42.000Z"
 }
