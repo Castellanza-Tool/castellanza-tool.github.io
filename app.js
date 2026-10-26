@@ -51,7 +51,10 @@
     var p = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Rome', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
     return p; // YYYY-MM-DD
   }
-  function attivo(x, oggi) { return (!x.dal || oggi >= x.dal) && (!x.al || oggi <= x.al); }
+  function attivo(x, oggi) {
+    if ((x.sospesoDal || x.sospesoAl) && (!x.sospesoDal || oggi >= x.sospesoDal) && (!x.sospesoAl || oggi <= x.sospesoAl)) return false;
+    return (!x.dal || oggi >= x.dal) && (!x.al || oggi <= x.al);
+  }
   var giornoMostrato = null;
   var lineeSpostate = [];
   function spostaLinea(coords, px) {
@@ -77,6 +80,7 @@
     d.settings = Object.assign({}, dOrig.settings);
     var sit = (d.settings.situazioni || []).filter(function (x) { return attivo(x, oggi); })[0];
     if (sit) d.settings.situazioneOggi = sit.testo;
+    if (sit && typeof sit.introduzione === 'string') d.settings.introduzione = sit.introduzione; // una fase può sostituire o nascondere ("") l'introduzione
     d.aggiornamenti = (dOrig.aggiornamenti || []).map(function (a) {
       return (a.evidenzaAl && oggi > a.evidenzaAl) ? Object.assign({}, a, { inEvidenza: false }) : a;
     });

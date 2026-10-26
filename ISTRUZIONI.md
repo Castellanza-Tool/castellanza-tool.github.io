@@ -22,4 +22,5 @@ Tutto il contenuto sta in `dati.json`. La pagina lo rilegge ogni minuto, quindi 
 - `tipo` può essere `viabilita`, `avviso`, `urgente` oppure `concluso`.
 - Sulla gestione del traffico e la sicurezza del cantiere si resta generici (es. "il traffico all'incrocio è regolato da personale addetto"), senza nominare uffici o comandi comunali.
 - Un tratto può avere `inCorsoDal`/`inCorsoAl` (YYYY-MM-DD): in quei giorni la mappa lo mostra in corso (rosso), negli altri giorni con il suo `stato` normale. `dal`/`al` invece fanno sparire il tratto fuori dalle date: usarli solo per tratti temporanei creati apposta per una fase.
+- Tratti e percorsi possono avere `sospesoDal`/`sospesoAl` (YYYY-MM-DD): in quei giorni spariscono dalla mappa (cantiere sospeso, strada riaperta) e poi tornano da soli. Vale anche per le voci di `settings.situazioni`. Una voce di `situazioni` può avere `introduzione`: sostituisce `settings.introduzione` nei suoi giorni (stringa vuota = nessuna introduzione).
 - `coords` dei tratti: un elenco di [lat, lng] lungo la strada. Se è vuoto, la mappa resta nascosta.

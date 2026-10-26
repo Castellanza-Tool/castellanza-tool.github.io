@@ -52,7 +52,10 @@
     var p = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Rome', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
     return p; // YYYY-MM-DD
   }
-  function attivo(x, oggi) { return (!x.dal || oggi >= x.dal) && (!x.al || oggi <= x.al); }
+  function attivo(x, oggi) {
+    if ((x.sospesoDal || x.sospesoAl) && (!x.sospesoDal || oggi >= x.sospesoDal) && (!x.sospesoAl || oggi <= x.sospesoAl)) return false;
+    return (!x.dal || oggi >= x.dal) && (!x.al || oggi <= x.al);
+  }
   var giornoMostrato = null;
   function render(dOrig) {
     var oggi = oggiRoma(); giornoMostrato = oggi;
