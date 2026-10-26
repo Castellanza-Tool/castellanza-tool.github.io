@@ -28,7 +28,7 @@
     });
   }
   function paragrafi(t) {
-    return esc(t).split(/\n{2,}/).map(function (p) { return '<p>' + p.replace(/\n/g, '<br>') + '</p>'; }).join('');
+    return esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').split(/\n{2,}/).map(function (p) { return '<p>' + p.replace(/\n/g, '<br>') + '</p>'; }).join(''); // **testo** = neretto
   }
   function fmtData(iso, conOra) {
     var d = new Date(iso);
