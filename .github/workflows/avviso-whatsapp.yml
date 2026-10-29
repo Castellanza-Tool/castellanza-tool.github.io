@@ -1,0 +1,36 @@
+name: Avviso WhatsApp (canale di prova)
+on:
+  push:
+    branches: [main]
+    paths: ['dati.json']
+jobs:
+  avviso:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 2 }
+      - name: Nuovo aggiornamento da segnalare?
+        id: check
+        run: |
+          python3 - <<'PY'
+          import json, subprocess, os
+          def wa(src):
+              try: return (json.loads(src).get('settings') or {}).get('whatsapp') or {}
+              except Exception: return {}
+          ora = wa(open('dati.json', encoding='utf-8').read())
+          try: prima = wa(subprocess.run(['git','show','HEAD~1:dati.json'],capture_output=True,text=True,check=True).stdout)
+          except Exception: prima = {}
+          invia = bool(ora.get('id') and ora.get('testo') and ora.get('id') != prima.get('id'))
+          json.dump({'id': ora.get('id'), 'testo': ora.get('testo')}, open('/tmp/avviso.json','w'), ensure_ascii=False)
+          open(os.environ['GITHUB_OUTPUT'],'a').write(f"invia={'si' if invia else 'no'}\n")
+          print('Avviso da inviare:', invia, ora.get('id'))
+          PY
+      - name: Invio allo scheduler
+        if: steps.check.outputs.invia == 'si'
+        env:
+          URL: ${{ secrets.SCHEDULER_URL }}
+          TOKEN: ${{ secrets.SCHEDULER_TOKEN }}
+        run: |
+          curl -sS --fail-with-body -m 30 -X POST "$URL/api/notifica-cantiere" \
+            -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+            --data-binary @/tmp/avviso.json
