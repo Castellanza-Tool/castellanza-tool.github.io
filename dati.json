@@ -22,7 +22,11 @@
   "situazioneOggi": "",
   "contatti": "",
   "notaMappa": "Il disegno sulla mappa è indicativo. Fonte cartografica: OpenStreetMap.",
-  "versioneApp": "20261026c"
+  "versioneApp": "20261026c",
+  "whatsapp": {
+   "id": "prova-github-1",
+   "testo": "Prova del collegamento automatico: questo messaggio è partito da solo dalla pagina cantieri ed è arrivato solo al canale di prova."
+  }
  },
  "tratti": [
   {
