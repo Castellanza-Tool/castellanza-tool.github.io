@@ -6,7 +6,7 @@
   var ETICHETTE_TIPO = { viabilita: 'Viabilità', avviso: 'Avviso', urgente: 'Urgente', concluso: 'Concluso' };
   var REFRESH_MS = 60000;
   var FILE_DATI = 'dati.json';
-  var VERSIONE = '20261026c'; // deve coincidere con settings.versioneApp in dati.json e con ?v= in index.html
+  var VERSIONE = '20261102c'; // deve coincidere con settings.versioneApp in dati.json e con ?v= in index.html
 
   var map = L.map('map', { scrollWheelZoom: true }).setView(CENTRO, 15);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -29,7 +29,11 @@
     });
   }
   function paragrafi(t) {
-    return esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').split(/\n{2,}/).map(function (p) { return '<p>' + p.replace(/\n/g, '<br>') + '</p>'; }).join(''); // **testo** = neretto
+    return esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').split(/\n{2,}/).map(function (p) {
+      var righe = p.split('\n');
+      if (righe.every(function (r) { return /^- /.test(r); })) return '<ul class="elenco">' + righe.map(function (r) { return '<li>' + r.slice(2) + '</li>'; }).join('') + '</ul>'; // righe che iniziano con "- " = elenco puntato
+      return '<p>' + p.replace(/\n/g, '<br>') + '</p>';
+    }).join(''); // **testo** = neretto
   }
   function fmtData(iso, conOra) {
     var d = new Date(iso);
@@ -70,6 +74,24 @@
     lineeSpostate.forEach(function (s) { s.layer.setLatLngs(spostaLinea(s.coords, s.px)); });
   }
   map.on('zoomend', aggiornaSpostate);
+  // frecce del senso di marcia consentito lungo un tratto
+  var SVG_FRECCIA = '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 12h13M11 6l7 6-7 6" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12h13M11 6l7 6-7 6" fill="none" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function disegnaFrecce(coords, inversa) {
+    var c = inversa ? coords.slice().reverse() : coords;
+    var lun = [0];
+    for (var i = 1; i < c.length; i++) lun.push(lun[i - 1] + map.distance(c[i - 1], c[i]));
+    var tot = lun[lun.length - 1];
+    [0.3, 0.7].forEach(function (f) {
+      var obiettivo = tot * f, k = 1;
+      while (k < c.length - 1 && lun[k] < obiettivo) k++;
+      var a = c[k - 1], b = c[k], q = (obiettivo - lun[k - 1]) / ((lun[k] - lun[k - 1]) || 1);
+      var pos = [a[0] + (b[0] - a[0]) * q, a[1] + (b[1] - a[1]) * q];
+      var pa = map.project(a, 18), pb = map.project(b, 18);
+      var ang = Math.atan2(pb.y - pa.y, pb.x - pa.x) * 180 / Math.PI;
+      L.marker(pos, { interactive: false, keyboard: false, icon: L.divIcon({ className: 'freccia-marcia', iconSize: [22, 22], iconAnchor: [11, 11],
+        html: '<div style="transform:rotate(' + ang.toFixed(1) + 'deg);width:22px;height:22px">' + SVG_FRECCIA + '</div>' }) }).addTo(livello);
+    });
+  }
   function render(dOrig) {
     var oggi = oggiRoma(); giornoMostrato = oggi;
     var d = Object.assign({}, dOrig);
@@ -117,7 +139,8 @@
       } else if (t.stato === 'programmato') {
         pl = L.polyline(t.coords, { color: colore, weight: 14, opacity: 0 }); // area cliccabile sul tratteggio
       } else {
-        pl = L.polyline(t.coords, { color: colore, weight: 8, opacity: .95 });
+        pl = L.polyline(t.coords, { color: colore, weight: t.spessore || 8, opacity: .95 });
+        if (t.frecce === 'avanti' || t.frecce === 'indietro') disegnaFrecce(t.coords, t.frecce === 'indietro');
       }
       pl.bindPopup(popup).addTo(livello); linee[t.id] = pl;
       bounds = bounds.concat(t.coords);
@@ -151,9 +174,11 @@
     $('percorsi').innerHTML = pulsanti.length ? '<h2>Percorsi alternativi: apriteli in Google Maps</h2><div class="pulsanti">' + pulsanti.join('') + '</div>' : '';
     // legenda dentro la mappa
     var voci = [];
+    var conFrecce = d.tratti.some(function (t) { return t.frecce === 'avanti' || t.frecce === 'indietro'; });
     if (d.tratti.some(function (t) { return t.stato === 'programmato'; })) voci.push('<div><span class="lg tratteggio"></span>Tracciato completo dei lavori</div>');
     var inCorso = d.tratti.filter(function (t) { return t.stato === 'in_corso'; });
     if (inCorso.length) voci.push('<div><span class="lg" style="background:' + COLORI.in_corso + '"></span>' + esc(inCorso[0].legenda || 'Cantiere in corso') + '</div>');
+    if (conFrecce) voci.push('<div><span class="lg-freccia">' + SVG_FRECCIA + '</span>Senso di marcia consentito</div>');
     if (d.tratti.some(function (t) { return t.stato === 'concluso'; })) voci.push('<div><span class="lg" style="background:' + COLORI.concluso + '"></span>Lavori conclusi</div>');
     percorsi.forEach(function (p) { voci.push('<div><span class="lg" style="background:' + esc(p.colore) + '"></span>' + esc(p.etichetta || 'Percorso alternativo consigliato') + '</div>'); });
     legendaMappa.getContainer().innerHTML = voci.join('');
