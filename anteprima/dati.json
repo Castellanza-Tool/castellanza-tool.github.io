@@ -1,7 +1,7 @@
 {
   "settings": {
     "titolo": "Lavori sulla rete dell’acqua: la viabilità aggiornata",
-    "introduzione": "Riprendono i lavori di CAP Holding sulla rete idrica comunale. Sulla mappa trovate in rosso le corsie chiuse al traffico.",
+    "introduzione": "Riprendono i lavori di CAP Holding sulla rete idrica comunale. Sulla mappa trovate in rosso le corsie interessate dalle modifiche e, con le frecce, il senso di marcia consentito.",
     "situazioni": [
       {
         "testo": "Da martedì 3 novembre riprendono i lavori alla rete idrica di CAP Holding all’intersezione tra via Piave, via Sempione, corso Matteotti e via Luigi Pomini e la viabilità, per un massimo di tre giorni lavorativi, sarà gestita nel seguente modo.\n\nNon sarà possibile percorrere via Luigi Pomini nella corsia di marcia che va dall’intersezione tra via Luigi Pomini e via don Testori fino all’incrocio tra via Luigi Pomini e corso Matteotti. L’altra corsia, in direzione viale Don Minzoni, rimane aperta al transito.\n\nI lavori continueranno in via Piave con l’occupazione della corsia di marcia di destra, ossia in direzione Marnate, che va dall’intersezione tra via Piave e corso Matteotti fino all’intersezione tra via Piave e via Piola. Da Marnate in direzione Castellanza si potrà procedere."
@@ -18,7 +18,7 @@
       "id": "pomini-chiusa-matteotti",
       "nome": "Via Luigi Pomini: chiusa in direzione corso Matteotti",
       "stato": "in_corso",
-      "legenda": "Corsie chiuse al traffico",
+      "legenda": "Corsie interessate dalle modifiche",
       "note": "Aperta la corsia in direzione viale Don Minzoni.",
       "coords": [
         [
@@ -101,7 +101,7 @@
       "id": "piave-chiusa-marnate",
       "nome": "Via Piave: chiusa in direzione Marnate",
       "stato": "in_corso",
-      "legenda": "Corsie chiuse al traffico",
+      "legenda": "Corsie interessate dalle modifiche",
       "note": "Aperta la corsia da Marnate in direzione Castellanza.",
       "coords": [
         [
@@ -179,5 +179,5 @@
       "testo": "Da lunedì 19 ottobre via Sempione resta chiusa in direzione Legnano a partire dall’intersezione con via Sanguinola. Chi è diretto a Legnano (o agli ingressi autostradali) deve imboccare viale Don Minzoni. Il transito sul Sempione resta consentito in direzione Busto Arsizio ai veicoli provenienti da Castellanza centro.\n\nAi veicoli provenienti da Busto Arsizio e diretti in Valle Olona è obbligatorio svoltare a sinistra alla rotatoria tra via Sempione e via Morelli di Olgiate Olona. Ai veicoli provenienti da Olgiate Olona da via Morelli e diretti a Legnano è obbligatorio girare a sinistra alla rotatoria e poi subito a destra in via Sanguinola. I veicoli provenienti da via per Olgiate Olona e diretti verso via Sempione saranno obbligati a svoltare a destra in via Sempione – direzione Busto Arsizio."
     }
   ],
-  "aggiornatoIl": "2026-11-02T09:46:38.000Z"
+  "aggiornatoIl": "2026-11-02T09:48:31.000Z"
 }
