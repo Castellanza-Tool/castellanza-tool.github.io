@@ -6,7 +6,7 @@
   var ETICHETTE_TIPO = { viabilita: 'Viabilità', avviso: 'Avviso', urgente: 'Urgente', concluso: 'Concluso' };
   var REFRESH_MS = 60000;
   var FILE_DATI = 'dati.json';
-  var VERSIONE = '20261102b'; // deve coincidere con settings.versioneApp in dati.json e con ?v= in index.html
+  var VERSIONE = '20261102a'; // deve coincidere con settings.versioneApp in dati.json e con ?v= in index.html
 
   var map = L.map('map', { scrollWheelZoom: true }).setView(CENTRO, 15);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -72,25 +72,20 @@
   map.on('zoomend', aggiornaSpostate);
   // frecce del senso di marcia consentito lungo un tratto
   var SVG_FRECCIA = '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 12h13M11 6l7 6-7 6" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12h13M11 6l7 6-7 6" fill="none" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  var SVG_DIVIETO = '<svg viewBox="0 0 20 20" width="14" height="14"><circle cx="10" cy="10" r="9" fill="#dc2626" stroke="#fff" stroke-width="2"/><rect x="4.5" y="8.2" width="11" height="3.6" fill="#fff"/></svg>';
-  var SVG_VIETATO = '<span style="display:inline-flex;align-items:center"><span style="display:inline-flex;transform:rotate(180deg)">' + SVG_FRECCIA + '</span>' + SVG_DIVIETO + '</span>';
   function disegnaFrecce(coords, inversa) {
     var c = inversa ? coords.slice().reverse() : coords;
     var lun = [0];
     for (var i = 1; i < c.length; i++) lun.push(lun[i - 1] + map.distance(c[i - 1], c[i]));
     var tot = lun[lun.length - 1];
-    [[0.25, false], [0.5, true], [0.75, false]].forEach(function (x) {
-      var f = x[0], vietata = x[1];
+    [0.3, 0.7].forEach(function (f) {
       var obiettivo = tot * f, k = 1;
       while (k < c.length - 1 && lun[k] < obiettivo) k++;
       var a = c[k - 1], b = c[k], q = (obiettivo - lun[k - 1]) / ((lun[k] - lun[k - 1]) || 1);
       var pos = [a[0] + (b[0] - a[0]) * q, a[1] + (b[1] - a[1]) * q];
       var pa = map.project(a, 18), pb = map.project(b, 18);
-      var ang = Math.atan2(pb.y - pa.y, pb.x - pa.x) * 180 / Math.PI + (vietata ? 180 : 0);
-      var html;
-      if (vietata) html = '<div style="transform:rotate(' + ang.toFixed(1) + 'deg);width:40px;height:22px;display:flex;align-items:center">' + SVG_FRECCIA + '<span style="display:inline-flex;margin-left:1px;transform:rotate(' + (-ang).toFixed(1) + 'deg)">' + SVG_DIVIETO + '</span></div>';
-      else html = '<div style="transform:rotate(' + ang.toFixed(1) + 'deg);width:22px;height:22px">' + SVG_FRECCIA + '</div>';
-      L.marker(pos, { interactive: false, keyboard: false, icon: L.divIcon({ className: 'freccia-marcia', iconSize: vietata ? [40, 22] : [22, 22], iconAnchor: vietata ? [20, 11] : [11, 11], html: html }) }).addTo(livello);
+      var ang = Math.atan2(pb.y - pa.y, pb.x - pa.x) * 180 / Math.PI;
+      L.marker(pos, { interactive: false, keyboard: false, icon: L.divIcon({ className: 'freccia-marcia', iconSize: [22, 22], iconAnchor: [11, 11],
+        html: '<div style="transform:rotate(' + ang.toFixed(1) + 'deg);width:22px;height:22px">' + SVG_FRECCIA + '</div>' }) }).addTo(livello);
     });
   }
   function render(dOrig) {
@@ -180,7 +175,6 @@
     var inCorso = d.tratti.filter(function (t) { return t.stato === 'in_corso'; });
     if (inCorso.length) voci.push('<div><span class="lg" style="background:' + COLORI.in_corso + '"></span>' + esc(inCorso[0].legenda || 'Cantiere in corso') + '</div>');
     if (conFrecce) voci.push('<div><span class="lg-freccia">' + SVG_FRECCIA + '</span>Senso di marcia consentito</div>');
-    if (conFrecce) voci.push('<div><span class="lg-freccia">' + SVG_VIETATO + '</span>Senso di marcia vietato</div>');
     if (d.tratti.some(function (t) { return t.stato === 'concluso'; })) voci.push('<div><span class="lg" style="background:' + COLORI.concluso + '"></span>Lavori conclusi</div>');
     percorsi.forEach(function (p) { voci.push('<div><span class="lg" style="background:' + esc(p.colore) + '"></span>' + esc(p.etichetta || 'Percorso alternativo consigliato') + '</div>'); });
     legendaMappa.getContainer().innerHTML = voci.join('');
