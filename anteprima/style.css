@@ -109,3 +109,7 @@ select { padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; b
 .intro { background: var(--surface); border-left: 5px solid var(--corso); border-radius: var(--radius); padding: 14px 18px; }
 .intro h2 { margin: 0 0 6px; font-size: 1.05rem; }
 .foot:empty { display: none; }
+
+.freccia-marcia{background:none;border:0}
+.lg-freccia{display:inline-flex;vertical-align:middle;margin-right:6px}
+.lg-freccia svg{width:18px;height:18px}
