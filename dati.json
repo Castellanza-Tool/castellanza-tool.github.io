@@ -4,14 +4,7 @@
   "introduzione": "Riprendono i lavori di CAP Holding sulla rete idrica comunale. Sulla mappa trovate in rosso le corsie interessate dalle modifiche, con le frecce il senso di marcia consentito, in blu i percorsi consigliati per Marnate e in verde il percorso alternativo da viale Lombardia.",
   "situazioni": [
    {
-    "dal": "2026-10-30",
-    "al": "2026-11-02",
-    "introduzione": "**Da venerdì 30 ottobre a lunedì 2 novembre compresi il cantiere è sospeso per la commemorazione dei defunti, così da permettere a tutti di raggiungere il cimitero senza difficoltà. Via Sempione è aperta al traffico in entrambe le direzioni. I lavori riprendono martedì 3 novembre.**",
-    "testo": ""
-   },
-   {
-    "testo": "Da martedì 3 novembre riprendono i lavori alla rete idrica di CAP Holding all’intersezione tra via Piave, via Sempione, corso Matteotti e via Luigi Pomini e la viabilità, per un massimo di tre giorni lavorativi, sarà gestita nel seguente modo:\n\n- Non sarà possibile percorrere via Luigi Pomini nella corsia di marcia che va dall’intersezione tra via Luigi Pomini e via don Testori fino all’incrocio tra via Luigi Pomini e corso Matteotti. L’altra corsia, in direzione viale Don Minzoni, rimane aperta al transito.\n- I lavori continueranno in via Piave con l’occupazione della corsia di marcia di destra, ossia in direzione Marnate, che va dall’intersezione tra via Piave e corso Matteotti fino all’intersezione tra via Piave e via Piola. Da Marnate in direzione Castellanza si potrà procedere.\n- Chi percorre corso Matteotti in direzione Busto Arsizio, all’incrocio semaforico non potrà svoltare a destra in via Piave direzione Marnate. Percorso consigliato per Marnate: prendere via per Olgiate Olona (in blu sulla mappa) oppure prendere direttamente viale Lombardia dalla via Saronnese (in verde sulla mappa).\n- Chi proviene da Busto Arsizio non potrà svoltare a sinistra in via Piave. Percorso consigliato per Marnate: prendere via Costalunga, piazza Castegnate e via Piola (in blu sulla mappa).",
-    "dal": "2026-11-03"
+    "testo": "Da martedì 3 novembre riprendono i lavori alla rete idrica di CAP Holding all’intersezione tra via Piave, via Sempione, corso Matteotti e via Luigi Pomini e la viabilità, per un massimo di tre giorni lavorativi, sarà gestita nel seguente modo:\n\n- Non sarà possibile percorrere via Luigi Pomini nella corsia di marcia che va dall’intersezione tra via Luigi Pomini e via don Testori fino all’incrocio tra via Luigi Pomini e corso Matteotti. L’altra corsia, in direzione viale Don Minzoni, rimane aperta al transito.\n- I lavori continueranno in via Piave con l’occupazione della corsia di marcia di destra, ossia in direzione Marnate, che va dall’intersezione tra via Piave e corso Matteotti fino all’intersezione tra via Piave e via Piola. Da Marnate in direzione Castellanza si potrà procedere.\n- Chi percorre corso Matteotti in direzione Busto Arsizio, all’incrocio semaforico non potrà svoltare a destra in via Piave direzione Marnate. Percorso consigliato per Marnate: prendere via per Olgiate Olona (in blu sulla mappa) oppure prendere direttamente viale Lombardia dalla via Saronnese (in verde sulla mappa).\n- Chi proviene da Busto Arsizio non potrà svoltare a sinistra in via Piave. Percorso consigliato per Marnate: prendere via Costalunga, piazza Castegnate e via Piola (in blu sulla mappa)."
    }
   ],
   "situazioneOggi": "",
@@ -105,8 +98,7 @@
     ]
    ],
    "spessore": 5,
-   "frecce": "indietro",
-   "dal": "2026-11-03"
+   "frecce": "indietro"
   },
   {
    "id": "piave-chiusa-marnate",
@@ -165,8 +157,7 @@
     ]
    ],
    "spessore": 5,
-   "frecce": "indietro",
-   "dal": "2026-11-03"
+   "frecce": "indietro"
   }
  ],
  "percorsi": [
@@ -734,8 +725,7 @@
    "offsetLinee": [
     0,
     0
-   ],
-   "dal": "2026-11-03"
+   ]
   },
   {
    "id": "marnate-lombardia",
@@ -914,8 +904,7 @@
    ],
    "offsetLinee": [
     0
-   ],
-   "dal": "2026-11-03"
+   ]
   }
  ],
  "aggiornamenti": [
@@ -939,5 +928,5 @@
    "testo": "Da lunedì 19 ottobre via Sempione resta chiusa in direzione Legnano a partire dall’intersezione con via Sanguinola. Chi è diretto a Legnano (o agli ingressi autostradali) deve imboccare viale Don Minzoni. Il transito sul Sempione resta consentito in direzione Busto Arsizio ai veicoli provenienti da Castellanza centro.\n\nAi veicoli provenienti da Busto Arsizio e diretti in Valle Olona è obbligatorio svoltare a sinistra alla rotatoria tra via Sempione e via Morelli di Olgiate Olona. Ai veicoli provenienti da Olgiate Olona da via Morelli e diretti a Legnano è obbligatorio girare a sinistra alla rotatoria e poi subito a destra in via Sanguinola. I veicoli provenienti da via per Olgiate Olona e diretti verso via Sempione saranno obbligati a svoltare a destra in via Sempione – direzione Busto Arsizio."
   }
  ],
- "aggiornatoIl": "2026-11-02T12:41:21.000Z"
+ "aggiornatoIl": "2026-11-02T12:51:34.000Z"
 }
