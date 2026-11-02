@@ -111,5 +111,7 @@ select { padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; b
 .foot:empty { display: none; }
 
 .freccia-marcia{background:none;border:0}
-.lg-freccia{display:inline-flex;vertical-align:middle;margin-right:6px}
+.lg-freccia{display:inline-flex;align-items:center;justify-content:center;width:26px;flex:none}
 .lg-freccia svg{width:18px;height:18px}
+.lg-freccia span svg{width:15px;height:15px}
+.lg-freccia svg+svg{width:10px;height:10px}
