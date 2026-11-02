@@ -1,0 +1,179 @@
+{
+  "settings": {
+    "titolo": "Lavori sulla rete dell’acqua: la viabilità aggiornata",
+    "introduzione": "Riprendono i lavori di CAP Holding sulla rete idrica comunale. Sulla mappa trovate in rosso le corsie chiuse al traffico.",
+    "situazioni": [
+      {
+        "testo": "Da martedì 3 novembre riprendono i lavori alla rete idrica di CAP Holding all’intersezione tra via Piave, via Sempione, corso Matteotti e via Luigi Pomini e la viabilità, per un massimo di tre giorni lavorativi, sarà gestita nel seguente modo.\n\nNon sarà possibile percorrere via Luigi Pomini nella corsia di marcia che va dall’intersezione tra via Luigi Pomini e via don Testori fino all’incrocio tra via Luigi Pomini e corso Matteotti. L’altra corsia, in direzione viale Don Minzoni, rimane aperta al transito.\n\nI lavori continueranno in via Piave con l’occupazione della corsia di marcia di destra, ossia in direzione Marnate, che va dall’intersezione tra via Piave e corso Matteotti fino all’intersezione tra via Piave e via Piola. Da Marnate in direzione Castellanza si potrà procedere."
+      }
+    ],
+    "situazioneOggi": "",
+    "contatti": "",
+    "notaMappa": "Il disegno sulla mappa è indicativo. Fonte cartografica: OpenStreetMap.",
+    "versioneApp": "20261026c",
+    "whatsapp": {}
+  },
+  "tratti": [
+    {
+      "id": "pomini-chiusa-matteotti",
+      "nome": "Via Luigi Pomini: chiusa in direzione corso Matteotti",
+      "stato": "in_corso",
+      "legenda": "Corsie chiuse al traffico",
+      "note": "Aperta la corsia in direzione viale Don Minzoni.",
+      "coords": [
+        [
+          45.614109,
+          8.896093
+        ],
+        [
+          45.613825,
+          8.895509
+        ],
+        [
+          45.613719,
+          8.895289
+        ],
+        [
+          45.613693,
+          8.895236
+        ],
+        [
+          45.613656,
+          8.895162
+        ],
+        [
+          45.613631,
+          8.895105
+        ],
+        [
+          45.613604,
+          8.895045
+        ],
+        [
+          45.613572,
+          8.894966
+        ],
+        [
+          45.613495,
+          8.89476
+        ],
+        [
+          45.613436,
+          8.894576
+        ],
+        [
+          45.613409,
+          8.894487
+        ],
+        [
+          45.613382,
+          8.894393
+        ],
+        [
+          45.61329,
+          8.894069
+        ],
+        [
+          45.614274,
+          8.896429
+        ],
+        [
+          45.614311,
+          8.896496
+        ],
+        [
+          45.614341,
+          8.896538
+        ],
+        [
+          45.614383,
+          8.896556
+        ],
+        [
+          45.614468,
+          8.896563
+        ]
+      ]
+    },
+    {
+      "id": "piave-chiusa-marnate",
+      "nome": "Via Piave: chiusa in direzione Marnate",
+      "stato": "in_corso",
+      "legenda": "Corsie chiuse al traffico",
+      "note": "Aperta la corsia da Marnate in direzione Castellanza.",
+      "coords": [
+        [
+          45.614468,
+          8.896563
+        ],
+        [
+          45.614525,
+          8.89656
+        ],
+        [
+          45.614566,
+          8.896573
+        ],
+        [
+          45.614645,
+          8.896662
+        ],
+        [
+          45.615313,
+          8.897654
+        ],
+        [
+          45.615532,
+          8.897933
+        ],
+        [
+          45.615809,
+          8.898239
+        ],
+        [
+          45.615972,
+          8.898437
+        ],
+        [
+          45.616151,
+          8.898691
+        ],
+        [
+          45.616206,
+          8.898767
+        ],
+        [
+          45.616384,
+          8.899017
+        ],
+        [
+          45.616752,
+          8.899547
+        ]
+      ]
+    }
+  ],
+  "percorsi": [],
+  "aggiornamenti": [
+    {
+      "id": "defunti-2026",
+      "data": "2026-10-26T08:09:20.000Z",
+      "titolo": "Dal 30 ottobre al 2 novembre cantiere sospeso e via Sempione riaperta",
+      "testo": "Da venerdì 30 ottobre a lunedì 2 novembre compresi il cantiere è sospeso per la commemorazione dei defunti, così da permettere a tutti di raggiungere il cimitero senza difficoltà. Via Sempione è aperta al traffico in entrambe le direzioni. I lavori riprendono martedì 3 novembre.",
+      "trattoId": "sempione-chiuso-legnano",
+      "tipo": "viabilita",
+      "inEvidenza": true,
+      "evidenzaAl": "2026-11-02"
+    },
+    {
+      "id": "2026-10-16-sempione-legnano",
+      "data": "2026-10-19T05:49:04.000Z",
+      "tipo": "viabilita",
+      "trattoId": "sempione-chiuso-legnano",
+      "inEvidenza": false,
+      "titolo": "Da lunedì 19 ottobre via Sempione chiusa in direzione Legnano da via Sanguinola",
+      "testo": "Da lunedì 19 ottobre via Sempione resta chiusa in direzione Legnano a partire dall’intersezione con via Sanguinola. Chi è diretto a Legnano (o agli ingressi autostradali) deve imboccare viale Don Minzoni. Il transito sul Sempione resta consentito in direzione Busto Arsizio ai veicoli provenienti da Castellanza centro.\n\nAi veicoli provenienti da Busto Arsizio e diretti in Valle Olona è obbligatorio svoltare a sinistra alla rotatoria tra via Sempione e via Morelli di Olgiate Olona. Ai veicoli provenienti da Olgiate Olona da via Morelli e diretti a Legnano è obbligatorio girare a sinistra alla rotatoria e poi subito a destra in via Sanguinola. I veicoli provenienti da via per Olgiate Olona e diretti verso via Sempione saranno obbligati a svoltare a destra in via Sempione – direzione Busto Arsizio."
+    }
+  ],
+  "aggiornatoIl": "2026-11-02T09:44:10.000Z"
+}
