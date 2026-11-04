@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Segno, gesto e materia | Villa Pomini, Castellanza</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Mostra a Villa Pomini, Castellanza. Inaugurazione sabato 21 novembre 2026.">
+<!-- Web Analytics Italia: qui andrà il codice di tracciamento del sito tematico -->
+<style>
+@font-face{font-family:"Shippori Mincho";src:url(fonts/shippori-mincho-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Shippori Mincho";src:url(fonts/shippori-mincho-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Shippori Mincho";src:url(fonts/shippori-mincho-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Zen Kaku Gothic New";src:url(fonts/zen-kaku-gothic-new-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Zen Kaku Gothic New";src:url(fonts/zen-kaku-gothic-new-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Zen Kaku Gothic New";src:url(fonts/zen-kaku-gothic-new-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+
+:root{
+  /* palette dal manifesto "Segno gesto e materia" */
+  --carta:#EEF2F0;      /* fondo */
+  --supporto:#FFFFFF;   /* passe-partout */
+  --sumi:#1B2B29;       /* testo */
+  --verdone:#1F4A44;    /* colore guida */
+  --azzurro:#00B0CC;    /* azzurro del manifesto, superfici e segni */
+  --ai:#00728E;         /* azzurro scuro: link e dettagli leggibili */
+  --acqua:#7CC3C4;
+  --pietra:#566460;     /* testi secondari */
+  --velo:#D7E9EA;       /* superfici vuote */
+  --filo:#C5D3D0;       /* linee sottili */
+  --mincho:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",Georgia,serif;
+  --gothic:"Zen Kaku Gothic New","Helvetica Neue",Arial,sans-serif;
+  --margine:clamp(1.25rem,5vw,4.5rem);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--carta);color:var(--sumi);font-family:var(--gothic);font-size:1.0625rem;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--ai);text-underline-offset:.2em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--ai);outline-offset:3px}
+img{max-width:100%;display:block}
+.salta{position:absolute;left:-999px;top:0;background:var(--sumi);color:#fff;padding:.5rem 1rem;z-index:10}
+.salta:focus{left:0}
+
+/* ---------- testata ---------- */
+.testata{display:flex;justify-content:space-between;align-items:center;gap:1rem 2rem;flex-wrap:wrap;padding:1.25rem var(--margine);font-size:.9375rem;border-bottom:1px solid var(--verdone)}
+.testata a{color:var(--sumi);text-decoration:none}
+.testata nav a:hover{color:var(--ai);text-decoration:underline}
+.testata nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.75rem;flex-wrap:wrap}
+.marchio{display:block;line-height:0}
+.logo{height:clamp(4.2rem,8vw,5.6rem);width:auto}
+@media (max-width:560px){.testata nav ul{gap:1.1rem;font-size:.875rem}}
+
+/* ---------- apertura ---------- */
+.apertura{padding:clamp(2.5rem,6vw,5rem) var(--margine) clamp(3rem,7vw,6rem);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);column-gap:clamp(2rem,6vw,6rem);align-items:center}
+.titolo h1{font-family:var(--mincho);font-weight:700;color:var(--verdone);font-size:clamp(2.8rem,6.4vw,5.6rem);line-height:1.02;letter-spacing:-.01em;margin:0}
+.titolo .sottotitolo{font-family:var(--mincho);font-size:clamp(1.25rem,2.2vw,1.75rem);line-height:1.35;margin:1.25rem 0 2.25rem;max-width:26rem}
+.data{font-size:clamp(1.05rem,1.6vw,1.25rem);font-weight:500;margin:0}
+.dove{margin:.3rem 0 0;color:var(--pietra)}
+.manifesto{display:flex;justify-content:center;margin:0}
+.dono{font-family:var(--mincho);font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--ai);margin:0 0 1rem;padding-left:.9rem;border-left:3px solid var(--azzurro)}
+.manifesto img{width:min(100%,22rem);height:auto;box-shadow:0 18px 40px -22px rgba(31,74,68,.55)}
+@media (max-width:760px){
+  .apertura{grid-template-columns:1fr;row-gap:3rem}
+  .manifesto{justify-content:flex-start}
+  .manifesto img{width:min(78%,20rem)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .manifesto img{animation:affiora 1.4s cubic-bezier(.3,0,.2,1) .15s both}
+}
+@keyframes srotola{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes affiora{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes filo{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+
+/* ---------- soglia (citazione) ---------- */
+.soglia{margin:0;padding:clamp(4rem,10vw,8rem) var(--margine);border-top:1px solid var(--filo)}
+.soglia{background:var(--verdone);color:#fff;border-top:0}
+.soglia blockquote{margin:0 auto;max-width:44rem;border-left:3px solid var(--azzurro);padding-left:clamp(1rem,3vw,2rem);font-family:var(--mincho);font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.5}
+.soglia blockquote p{margin:0}
+.soglia figcaption{max-width:44rem;margin:1.5rem auto 0;padding-left:clamp(1rem,3vw,2rem);font-size:.9375rem;color:var(--acqua)}
+
+/* ---------- sezioni ---------- */
+.sezione{padding:clamp(3.5rem,8vw,6.5rem) var(--margine);border-top:1px solid var(--filo);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);column-gap:clamp(2rem,6vw,6rem)}
+.sezione>h2{font-family:var(--mincho);font-weight:500;color:var(--verdone);font-size:clamp(1.75rem,3vw,2.4rem);line-height:1.2;margin:0 0 1.5rem;position:sticky;top:2rem;align-self:start}
+.corpo{max-width:42rem}
+.corpo p{margin:0 0 1.1em}
+.corpo p:last-child{margin-bottom:0}
+.larga{max-width:none}
+@media (max-width:800px){
+  .sezione{grid-template-columns:1fr}
+  .sezione>h2{position:static}
+}
+
+/* da decidere: visibile anche fuori bozza, per la revisione interna */
+.da-decidere{display:block;background:#FFF3CD;border:2px solid #C98A00;color:#5A3E00;padding:.6rem .9rem;font-size:.9375rem;line-height:1.5}
+.da-decidere strong{display:block;color:#5A3E00}
+/* segnaposto: visibili solo in bozza */
+.segnaposto{color:var(--ai);background:rgba(44,74,110,.07);border-bottom:1px dashed var(--ai);padding:0 .2em}
+html:not(.bozza) [data-in-arrivo],html:not(.bozza) .segnaposto{display:none}
+
+/* ---------- le opere ---------- */
+.parete{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(15rem,40vw),1fr));gap:clamp(2rem,4vw,3.5rem) clamp(1.5rem,3vw,2.5rem);align-items:end;margin-top:2.5rem}
+.opera{margin:0}
+.opera button{all:unset;cursor:zoom-in;display:block;width:100%}
+.opera button:focus-visible{outline:2px solid var(--ai);outline-offset:4px}
+.cornice{background:var(--supporto);padding:clamp(.9rem,2vw,1.4rem);box-shadow:0 14px 30px -24px rgba(31,74,68,.6)}
+.vuoto{background:var(--velo);display:grid;place-items:center;color:var(--ai);font-size:.875rem;text-align:center;padding:1rem}
+.r-v{aspect-ratio:3/4}.r-o{aspect-ratio:4/3}.r-q{aspect-ratio:1}
+.opera figcaption{margin-top:.9rem;font-size:.875rem;line-height:1.55;color:var(--pietra)}
+.opera figcaption strong{display:block;color:var(--sumi);font-weight:500;font-size:.9375rem}
+.opera figcaption em{font-family:var(--mincho);font-style:normal;color:var(--sumi)}
+
+/* ---------- video: due rotoli verticali ---------- */
+.rotoli{display:flex;gap:clamp(2rem,6vw,5rem);flex-wrap:wrap;margin-top:2.5rem}
+.rotolo-video{margin:0;width:min(17.5rem,100%)}
+.rotolo-video .asta{height:6px;background:var(--verdone);margin:0 -.6rem}
+.rotolo-video .cornice{padding:.8rem}
+.schermo{aspect-ratio:9/16;background:var(--velo);display:grid;place-items:center;color:var(--ai);font-size:.875rem;text-align:center;padding:1.5rem}
+.schermo video{width:100%;height:100%;object-fit:cover;display:block}
+.rotolo-video figcaption{margin-top:1rem;font-size:.9375rem;line-height:1.55}
+.rotolo-video figcaption span{display:block;color:var(--pietra);font-size:.875rem}
+
+/* ---------- ascolto ---------- */
+.ascolto{display:flex;gap:1.5rem;align-items:center;margin-top:2rem;flex-wrap:wrap}
+.qr{width:7.5rem;height:7.5rem;background:var(--supporto);display:grid;place-items:center;font-size:.75rem;color:var(--ai);text-align:center;border:1px dashed var(--ai)}
+
+/* ---------- visita ---------- */
+.scheda{margin:0;display:grid;grid-template-columns:minmax(8rem,12rem) 1fr;border-top:2px solid var(--azzurro)}
+.scheda dt,.scheda dd{margin:0;padding:1rem 0;border-bottom:1px solid var(--filo)}
+.scheda dt{font-weight:500;padding-right:1.5rem;color:var(--verdone)}
+@media (max-width:560px){.scheda{grid-template-columns:1fr}.scheda dt{border-bottom:0;padding-bottom:0}}
+
+#visita .corpo{background:var(--supporto);border:2px solid var(--verdone);padding:clamp(1.25rem,3vw,2.25rem);max-width:46rem}
+#visita .scheda{border-top:0}
+#visita .scheda dd:last-of-type,#visita .scheda dt:last-of-type{border-bottom:0}
+/* ---------- diario ---------- */
+.diario{list-style:none;margin:0;padding:0;border-left:2px solid var(--azzurro)}
+.diario li{position:relative;padding:0 0 2rem 1.75rem}
+.diario li::before{content:"";position:absolute;left:-6px;top:.6em;width:10px;height:10px;border-radius:50%;background:var(--verdone)}
+.diario time{display:block;font-family:var(--mincho);font-size:1.125rem}
+.diario .attesa::before{background:var(--carta);border:2px solid var(--verdone)}
+
+/* ---------- crediti ---------- */
+.crediti{font-size:.9375rem}
+.crediti dl{margin:0;display:grid;grid-template-columns:minmax(8rem,14rem) 1fr;gap:.6rem 1.5rem}
+.crediti dt{color:var(--pietra)}
+.crediti dd{margin:0}
+.loghi{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem}
+.loghi span{flex:0 0 9rem;height:4rem;border:1px dashed var(--ai);display:grid;place-items:center;font-size:.75rem;color:var(--ai);text-align:center;padding:.25rem}
+@media (max-width:560px){.crediti dl{grid-template-columns:1fr}.crediti dd{margin-bottom:.6rem}}
+
+/* ---------- piede ---------- */
+.piede{background:var(--verdone);color:#E6E8E4;padding:3rem var(--margine);font-size:.875rem;display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.piede a{color:#fff}
+.piede p{margin:0 0 .4rem}
+
+/* ---------- ingrandimento ---------- */
+dialog.lente{border:0;padding:0;background:transparent;max-width:min(92vw,70rem);max-height:92vh}
+dialog.lente::backdrop{background:rgba(240,241,237,.96)}
+.lente img{max-height:80vh;width:auto;margin:auto;background:#fff;padding:1rem}
+.lente p{text-align:center;font-size:.9375rem;color:var(--sumi);margin:1rem 0 0}
+.lente button{position:fixed;top:1rem;right:1rem;background:var(--sumi);color:#fff;border:0;padding:.5rem 1rem;font:inherit;cursor:pointer}
+</style>
+</head>
+<body>
+<a class="salta" href="#contenuto">Vai al contenuto</a>
+
+<header class="testata">
+  <a class="marchio" href="#contenuto" aria-label="Villa Pomini, Castellanza: inizio pagina"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 339 140" role="img" aria-label="Villa Pomini, Castellanza">
+
+<g transform="translate(2 8)" fill="none" stroke="#1F4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M2 112 H158"/>
+<path d="M62 14 L76 3 H94 L108 14 Z"/>
+<path d="M66 14 V17 H104 V14"/>
+<path d="M68 17 V31 H102 V17"/>
+<path d="M71.5 29 V22.5 A2.5 2.5 0 0 1 76.5 22.5 V29"/>
+<path d="M79 29 V22.5 A2.5 2.5 0 0 1 84 22.5 V29"/>
+<path d="M86.5 29 V22.5 A2.5 2.5 0 0 1 91.5 22.5 V29"/>
+<path d="M94 29 V22.5 A2.5 2.5 0 0 1 99 22.5 V29"/>
+<path d="M70 31 A2.5 2.5 0 0 0 75 31 A2.5 2.5 0 0 0 80 31 A2.5 2.5 0 0 0 85 31 A2.5 2.5 0 0 0 90 31 A2.5 2.5 0 0 0 95 31 A2.5 2.5 0 0 0 100 31"/>
+<path d="M72 31 V112"/>
+<path d="M98 31 V112"/>
+<path d="M78 54 V45 A2.75 2.75 0 0 1 83.5 45 V54"/>
+<path d="M86.5 54 V45 A2.75 2.75 0 0 1 92.0 45 V54"/>
+<path d="M76.5 54 H93.5"/>
+<path d="M82 80 V71 A3 3 0 0 1 88 71 V80"/>
+<path d="M98 58 L104 50 H142 L154 58 Z"/>
+<path d="M100 58 V112"/>
+<path d="M150 58 V112"/>
+<path d="M107 81 V71 A3 3 0 0 1 113 71 V81"/>
+<path d="M122 81 V71 A3 3 0 0 1 128 71 V81"/>
+<path d="M137 81 V71 A3 3 0 0 1 143 71 V81"/>
+<path d="M100 88 H150"/>
+<path d="M107 112 V101 A3 3 0 0 1 113 101 V112"/>
+<path d="M121 112 V99 A4 4 0 0 1 129 99 V112"/>
+<path d="M137 108 V101 A3 3 0 0 1 143 101 V108"/>
+<path d="M4 76 L10 70 H72"/>
+<path d="M4 76 H72"/>
+<path d="M6 80 H72"/>
+<path d="M8 88 V104"/>
+<path d="M20 88 V104"/>
+<path d="M32 88 V104"/>
+<path d="M44 88 V104"/>
+<path d="M56 88 V104"/>
+<path d="M68 88 V104"/>
+<path d="M8 88 A6 6 0 0 1 20 88 A6 6 0 0 1 32 88 A6 6 0 0 1 44 88 A6 6 0 0 1 56 88 A6 6 0 0 1 68 88"/>
+<path d="M4 104 H72"/>
+<path d="M4 104 V112"/>
+</g>
+<g fill="#1F4A44"><path d="M181.628 62.0 176.294 47.3H178.373L182.573 59.291L186.794 47.3H188.873L183.518 62.0Z M190.91 62.0V51.92H192.779V62.0ZM191.834 50.03Q191.309 50.03 190.94150000000002 49.6625Q190.574 49.295 190.574 48.769999999999996Q190.574 48.245 190.94150000000002 47.8775Q191.309 47.51 191.834 47.51Q192.338 47.51 192.7055 47.8775Q193.073 48.245 193.073 48.769999999999996Q193.073 49.295 192.7055 49.6625Q192.338 50.03 191.834 50.03Z M195.90800000000002 62.0V46.943H197.798V62.0Z M200.61200000000002 62.0V46.943H202.502V62.0Z M208.34000000000003 62.168Q206.80700000000002 62.21 205.8095 61.4645Q204.812 60.719 204.812 59.312Q204.812 58.283 205.4735 57.527Q206.13500000000002 56.771 207.17450000000002 56.3405Q208.21400000000003 55.91 209.32700000000003 55.91Q209.978 55.868 210.524 56.0255Q211.07000000000002 56.183 211.46900000000002 56.477V55.217Q211.46900000000002 54.041 210.9755 53.684Q210.48200000000003 53.327 209.45300000000003 53.327Q208.57100000000003 53.327 207.57350000000002 53.641999999999996Q206.57600000000002 53.957 205.883 54.44L205.00100000000003 52.97Q205.86200000000002 52.424 207.04850000000002 52.046Q208.235 51.668 209.45300000000003 51.668Q211.38500000000002 51.668 212.33000000000004 52.4345Q213.27500000000003 53.201 213.27500000000003 55.217V60.278Q213.27500000000003 60.677 213.485 60.739999999999995Q213.69500000000002 60.803 214.43 60.635V61.853Q214.157 61.958 213.73700000000002 62.063Q213.317 62.168 212.87600000000003 62.168Q212.204 62.168 211.91000000000003 61.916Q211.616 61.664 211.51100000000002 61.013Q210.94400000000002 61.58 210.08300000000003 61.852999999999994Q209.222 62.126 208.34000000000003 62.168ZM208.36100000000002 60.509Q209.24300000000002 60.488 209.96750000000003 60.2465Q210.692 60.005 211.11200000000002 59.5535Q211.532 59.102 211.49 58.472Q211.448 57.884 210.8915 57.632000000000005Q210.335 57.38 209.47400000000002 57.422Q208.69700000000003 57.443 208.04600000000002 57.7055Q207.395 57.968 207.00650000000002 58.388000000000005Q206.61800000000002 58.808 206.61800000000002 59.333Q206.639 59.921 207.101 60.2255Q207.56300000000002 60.53 208.36100000000002 60.509Z"/><path d="M203.92 76.152Q203.92 79.276 201.962 81.23400000000001Q200.004 83.19200000000001 197.20999999999998 84.05000000000001Q194.416 84.908 191.512 85.04Q190.324 85.084 188.124 85.084H186.408V95.38Q186.408 97.448 187.42 98.196Q188.432 98.944 190.10399999999998 98.944H190.632Q190.94 98.944 190.94 99.428Q190.94 100.0 190.632 100.0H176.376Q176.068 100.0 176.068 99.428Q176.068 98.944 176.376 98.944H176.948Q178.576 98.944 179.61 98.196Q180.644 97.448 180.644 95.38V72.19200000000001Q180.644 70.124 179.632 69.398Q178.62 68.672 176.948 68.672H176.376Q176.068 68.672 176.068 68.1Q176.068 67.572 176.376 67.572H187.552H192.48Q195.516 67.748 198.13400000000001 68.78200000000001Q200.752 69.816 202.336 71.686Q203.92 73.556 203.92 76.152ZM197.628 75.976Q197.628 73.468 196.374 71.84Q195.12 70.212 193.36 69.50800000000001Q191.6 68.804 190.016 68.804Q186.408 68.804 186.408 71.62V83.80799999999999H187.508H189.708Q194.064 83.632 195.846 81.58600000000001Q197.628 79.54 197.628 75.976Z M207.08800000000002 89.352Q207.08800000000002 86.44800000000001 208.452 83.874Q209.816 81.3 212.324 79.738Q214.832 78.176 218.08800000000002 78.176Q221.344 78.176 223.874 79.738Q226.404 81.3 227.79000000000002 83.874Q229.17600000000002 86.44800000000001 229.17600000000002 89.352Q229.17600000000002 92.168 227.79000000000002 94.76400000000001Q226.404 97.36 223.874 98.96600000000001Q221.344 100.572 218.08800000000002 100.572Q214.832 100.572 212.324 98.96600000000001Q209.816 97.36 208.452 94.76400000000001Q207.08800000000002 92.168 207.08800000000002 89.352ZM223.808 89.352Q223.808 85.084 222.312 82.24600000000001Q220.816 79.408 218.08800000000002 79.408Q215.448 79.408 213.952 82.268Q212.45600000000002 85.128 212.45600000000002 89.352Q212.45600000000002 93.532 213.952 96.458Q215.448 99.384 218.08800000000002 99.384Q220.77200000000002 99.384 222.29000000000002 96.458Q223.808 93.532 223.808 89.352Z M271.592 98.944Q271.9 98.944 271.9 99.472Q271.9 100.0 271.592 100.0H260.416Q260.108 100.0 260.108 99.472Q260.108 98.944 260.416 98.944H260.944Q262.176 98.944 262.836 98.548Q263.496 98.152 263.496 96.832L263.54 89.968Q263.54 87.24 263.452 85.392Q263.32 83.104 262.506 81.74000000000001Q261.692 80.376 259.712 80.376Q258.304 80.376 257.006 81.30000000000001Q255.708 82.224 254.696 83.852Q254.784 84.556 254.784 84.952Q254.828 85.92 254.828 88.78L254.784 96.832Q254.784 98.152 255.444 98.548Q256.104 98.944 257.336 98.944H257.82Q258.128 98.944 258.128 99.472Q258.128 100.0 257.82 100.0H246.688Q246.38 100.0 246.38 99.472Q246.38 98.944 246.688 98.944H247.216Q248.448 98.944 249.108 98.548Q249.768 98.152 249.768 96.832V90.056Q249.768 87.24 249.68 85.392Q249.59199999999998 83.104 248.778 81.74000000000001Q247.964 80.376 245.94 80.376Q244.444 80.376 243.124 81.344Q241.804 82.312 240.792 84.072V96.832Q240.792 98.152 241.452 98.548Q242.112 98.944 243.344 98.944H243.872Q244.18 98.944 244.18 99.472Q244.18 100.0 243.872 100.0H232.74Q232.432 100.0 232.432 99.472Q232.432 98.944 232.74 98.944H233.18Q234.456 98.944 235.11599999999999 98.548Q235.776 98.152 235.776 96.832L235.732 83.324Q235.688 81.916 235.05 81.476Q234.412 81.036 232.872 80.94800000000001Q232.652 80.904 232.564 80.684Q232.476 80.464 232.476 80.244Q232.476 79.936 232.74 79.892Q233.18 79.71600000000001 240.792 78.176V82.092Q242.024 80.288 243.74 79.232Q245.456 78.176 247.524 78.176Q250.164 78.176 251.88 79.364Q253.596 80.55199999999999 254.3 82.488Q257.116 78.176 261.252 78.176Q263.628 78.176 265.278 79.144Q266.928 80.112 267.72 81.674Q268.512 83.236 268.556 84.952Q268.6 85.92 268.6 88.78Q268.6 92.256 268.512 96.832Q268.512 98.152 269.172 98.548Q269.832 98.944 271.064 98.944Z M277.18 70.388Q277.18 69.024 278.126 68.078Q279.072 67.132 280.436 67.132Q281.756 67.132 282.724 68.078Q283.692 69.024 283.692 70.388Q283.692 71.708 282.724 72.654Q281.756 73.6 280.436 73.6Q279.072 73.6 278.126 72.654Q277.18 71.708 277.18 70.388ZM274.936 100.0Q274.628 100.0 274.628 99.428Q274.628 98.944 274.936 98.944H275.464Q276.74 98.944 277.466 98.548Q278.192 98.152 278.192 96.832L278.14799999999997 83.28Q278.14799999999997 81.916 277.48799999999994 81.476Q276.828 81.036 275.288 80.94800000000001Q274.892 80.904 274.892 80.288Q274.892 79.936 275.156 79.892Q275.64 79.71600000000001 283.252 78.176L283.20799999999997 96.832Q283.20799999999997 98.152 283.956 98.548Q284.704 98.944 285.97999999999996 98.944H286.508Q286.816 98.944 286.816 99.428Q286.816 100.0 286.508 100.0Z M314.932 98.944Q315.284 98.944 315.284 99.472Q315.284 100.0 314.932 100.0H303.844Q303.536 100.0 303.536 99.472Q303.536 98.944 303.844 98.944H304.372Q305.604 98.944 306.24199999999996 98.548Q306.88 98.152 306.88 96.832L306.924 89.088Q306.924 86.976 306.836 85.392Q306.748 83.104 305.91200000000003 81.74000000000001Q305.076 80.376 303.052 80.376Q301.6 80.376 300.28 81.344Q298.96 82.312 297.948 84.072V96.832Q297.948 98.152 298.608 98.548Q299.26800000000003 98.944 300.5 98.944H301.028Q301.336 98.944 301.336 99.472Q301.336 100.0 301.028 100.0H289.896Q289.544 100.0 289.544 99.472Q289.544 98.944 289.896 98.944H290.336Q291.612 98.944 292.27200000000005 98.548Q292.932 98.152 292.932 96.832L292.88800000000003 83.28Q292.88800000000003 81.916 292.206 81.45400000000001Q291.524 80.992 290.028 80.904Q289.632 80.86 289.632 80.2Q289.632 79.936 289.896 79.892Q290.336 79.71600000000001 297.948 78.176V82.092Q299.18 80.288 300.896 79.232Q302.612 78.176 304.68 78.176Q307.056 78.176 308.68399999999997 79.144Q310.312 80.112 311.10400000000004 81.652Q311.896 83.19200000000001 311.94 84.908V88.956V96.832Q311.94 98.152 312.6 98.548Q313.26 98.944 314.492 98.944Z M320.564 70.388Q320.564 69.024 321.51 68.078Q322.456 67.132 323.82 67.132Q325.14 67.132 326.108 68.078Q327.076 69.024 327.076 70.388Q327.076 71.708 326.108 72.654Q325.14 73.6 323.82 73.6Q322.456 73.6 321.51 72.654Q320.564 71.708 320.564 70.388ZM318.32 100.0Q318.012 100.0 318.012 99.428Q318.012 98.944 318.32 98.944H318.848Q320.124 98.944 320.85 98.548Q321.576 98.152 321.576 96.832L321.532 83.28Q321.532 81.916 320.87199999999996 81.476Q320.212 81.036 318.672 80.94800000000001Q318.276 80.904 318.276 80.288Q318.276 79.936 318.54 79.892Q319.024 79.71600000000001 326.636 78.176L326.592 96.832Q326.592 98.152 327.34000000000003 98.548Q328.088 98.944 329.364 98.944H329.892Q330.2 98.944 330.2 99.428Q330.2 100.0 329.892 100.0Z"/></g>
+<path d="M176 110.5 H329.6" stroke="#0082A2" stroke-width="2"/>
+<path d="M182.46 129.24Q181.035 129.24 179.91750000000002 128.565Q178.8 127.89 178.17000000000002 126.6525Q177.54 125.415 177.54 123.75Q177.54 122.07 178.17000000000002 120.8325Q178.8 119.595 179.91750000000002 118.9125Q181.035 118.23 182.46 118.23Q183.78 118.23 184.82999999999998 118.815Q185.88 119.4 186.525 120.45L184.98 121.35Q184.56 120.675 183.9225 120.3Q183.285 119.925 182.46 119.925Q181.53 119.925 180.825 120.39750000000001Q180.12 120.87 179.7375 121.7325Q179.355 122.595 179.355 123.75Q179.355 124.89 179.7375 125.7525Q180.12 126.615 180.825 127.0875Q181.53 127.56 182.46 127.56Q183.285 127.56 183.9225 127.185Q184.56 126.81 184.98 126.135L186.525 127.035Q185.88 128.07 184.82999999999998 128.655Q183.78 129.24 182.46 129.24Z M189.43 129.0 193.435 118.5H194.965L198.97 129.0H197.005L196.195 126.69H192.16L191.35 129.0ZM192.73 125.085H195.64L194.2 120.99Z M206.18 129.21Q204.85999999999999 129.21 203.7575 128.655Q202.655 128.1 201.995 126.78L203.45 125.955Q203.9 126.705 204.54500000000002 127.1325Q205.19 127.56 206.23999999999998 127.56Q207.29 127.56 207.71749999999997 127.17750000000001Q208.14499999999998 126.795 208.14499999999998 126.135Q208.14499999999998 125.715 207.95749999999998 125.41499999999999Q207.76999999999998 125.115 207.17749999999998 124.85249999999999Q206.58499999999998 124.59 205.355 124.32Q203.9 123.975 203.2025 123.225Q202.505 122.475 202.505 121.32Q202.505 120.405 202.9475 119.70750000000001Q203.39 119.01 204.1925 118.62Q204.995 118.23 206.075 118.23Q207.5 118.23 208.475 118.85249999999999Q209.45 119.475 209.95999999999998 120.315L208.595 121.365Q208.34 121.005 207.995 120.66749999999999Q207.65 120.33 207.185 120.1125Q206.72 119.895 206.06 119.895Q205.28 119.895 204.79250000000002 120.23249999999999Q204.305 120.57 204.305 121.245Q204.305 121.545 204.4475 121.82249999999999Q204.59 122.1 205.0775 122.35499999999999Q205.565 122.61 206.58499999999998 122.85Q208.385 123.255 209.18 124.065Q209.975 124.875 209.975 126.105Q209.975 127.605 208.9325 128.4075Q207.89 129.21 206.18 129.21Z M216.465 129.0V120.105H213.29999999999998V118.5H221.37V120.105H218.22V129.0Z M225.04 129.0V118.5H232.06V120.105H226.765V122.835H231.595V124.455H226.765V127.395H232.225V129.0Z M236.03 129.0V118.5H237.755V127.395H243.23000000000002V129.0Z M246.78 129.0V118.5H248.505V127.395H253.98000000000002V129.0Z M256.615 129.0 260.62 118.5H262.15000000000003L266.15500000000003 129.0H264.19000000000005L263.38000000000005 126.69H259.345L258.535 129.0ZM259.915 125.085H262.82500000000005L261.38500000000005 120.99Z M269.57000000000005 129.0V118.5H271.2950000000001L276.24500000000006 125.955V118.5H278.00000000000006V129.0H276.33500000000004L271.2950000000001 121.335V129.0Z M281.7900000000001 129.0V127.395L286.9800000000001 120.105H281.9700000000001V118.5H289.12500000000006V120.105L283.93500000000006 127.395H289.26000000000005V129.0Z M292.15000000000003 129.0 296.15500000000003 118.5H297.68500000000006L301.69000000000005 129.0H299.7250000000001L298.9150000000001 126.69H294.88000000000005L294.07000000000005 129.0ZM295.45000000000005 125.085H298.36000000000007L296.9200000000001 120.99Z" fill="#1F4A44"/>
+</svg></a>
+  <nav aria-label="Sezioni della pagina">
+    <ul>
+      <li><a href="#mostra">La mostra</a></li>
+      <li><a href="#ascolta">Da ascoltare</a></li>
+      <li><a href="#visita">La visita</a></li>
+      <li><a href="https://www.comune.castellanza.va.it/">Città di Castellanza</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="contenuto">
+
+<section class="apertura" aria-labelledby="titolo-mostra">
+  <div class="titolo">
+    <p class="dono">La donazione Ottorino Luciano Pomini</p>
+    <h1 id="titolo-mostra">Segno, gesto e materia</h1>
+    <p class="sottotitolo">nella pittura giapponese del secondo dopoguerra, 1958-1960</p>
+    <p class="data">Dal 21 novembre 2026</p>
+    <p class="dove">Villa Pomini, via don Luigi Testori 14, Castellanza</p>
+  </div>
+  <figure class="manifesto">
+        <img src="img/manifesto.png" width="377" height="539" alt="Manifesto della mostra Segno, gesto e materia: superficie pittorica materica in toni di azzurro e verde, con le date e le informazioni della mostra.">
+  </figure>
+</section>
+
+<figure class="soglia">
+  <blockquote>
+    <p>«Un patrimonio culturale inedito e dimenticato, ma capace di raccontare una grande pagina del collezionismo italiano del Secondo dopoguerra».</p>
+  </blockquote>
+  <figcaption>Davide Tarlazzi, assessore a Cultura e Istruzione del Comune di Castellanza</figcaption>
+</figure>
+
+<section class="sezione" id="mostra" aria-labelledby="h-mostra">
+  <h2 id="h-mostra">La mostra</h2>
+  <div class="corpo">
+    <p>Un nucleo di dipinti di artisti giapponesi realizzati tra il 1958 e il 1960 torna a essere visibile dopo il restauro. Le opere fanno parte della raccolta di quadri che l'industriale e collezionista Ottorino Luciano Pomini ha donato al Comune di Castellanza, e vengono presentate in un nuovo allestimento permanente negli spazi della villa.</p>
+    <p data-in-arrivo><span class="segnaposto">[Testo curatoriale: correnti e artisti presenti in mostra, a partire dal movimento Gutai; il senso della raccolta e il suo legame con il collezionista.]</span></p>
+  </div>
+</section>
+
+<section class="sezione" id="collezionista" aria-labelledby="h-collezionista" data-in-arrivo>
+  <h2 id="h-collezionista">Il collezionista</h2>
+  <div class="corpo">
+    <p data-in-arrivo><span class="segnaposto">[Chi era Ottorino Luciano Pomini: la storia, l'attività industriale, la passione per l'arte, la donazione al Comune. Testi in arrivo.]</span></p>
+  </div>
+</section>
+
+<section class="sezione" id="opere" aria-labelledby="h-opere" data-in-arrivo>
+  <h2 id="h-opere">Le opere</h2>
+  <div class="corpo larga">
+    <p style="max-width:42rem" data-in-arrivo><span class="segnaposto">[Breve introduzione alle opere esposte.]</span></p>
+    <div class="parete">
+      <figure class="opera"><div class="cornice"><div class="vuoto r-v">Fotografia in arrivo</div></div>
+        <figcaption><strong>Autore</strong><em>Titolo</em>, anno<br>Tecnica, misure</figcaption></figure>
+      <figure class="opera"><div class="cornice"><div class="vuoto r-o">Fotografia in arrivo</div></div>
+        <figcaption><strong>Autore</strong><em>Titolo</em>, anno<br>Tecnica, misure</figcaption></figure>
+      <figure class="opera"><div class="cornice"><div class="vuoto r-q">Fotografia in arrivo</div></div>
+        <figcaption><strong>Autore</strong><em>Titolo</em>, anno<br>Tecnica, misure</figcaption></figure>
+      <figure class="opera"><div class="cornice"><div class="vuoto r-o">Fotografia in arrivo</div></div>
+        <figcaption><strong>Autore</strong><em>Titolo</em>, anno<br>Tecnica, misure</figcaption></figure>
+      <figure class="opera"><div class="cornice"><div class="vuoto r-v">Fotografia in arrivo</div></div>
+        <figcaption><strong>Autore</strong><em>Titolo</em>, anno<br>Tecnica, misure</figcaption></figure>
+      <figure class="opera"><div class="cornice"><div class="vuoto r-q">Fotografia in arrivo</div></div>
+        <figcaption><strong>Autore</strong><em>Titolo</em>, anno<br>Tecnica, misure</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="restauro" aria-labelledby="h-restauro">
+  <h2 id="h-restauro">Il restauro</h2>
+  <div class="corpo">
+    <p>Prima di tornare alle pareti, le opere sono state restaurate dallo Studio di restauro di Isabella Pirola, sotto la sorveglianza della Soprintendenza. L'allestimento è curato dall'architetto Gianni Fiore.</p>
+    <p>La mostra è accompagnata da una pubblicazione divulgativa che inquadra il contesto storico-artistico, le singole opere e la figura del collezionista.</p>
+    <p data-in-arrivo><span class="segnaposto">[Eventuali immagini del cantiere di restauro, prima e dopo.]</span></p>
+  </div>
+</section>
+
+<section class="sezione" id="video" aria-labelledby="h-video" data-in-arrivo>
+  <h2 id="h-video">I video</h2>
+  <div class="corpo larga">
+    <div class="rotoli">
+      <figure class="rotolo-video">
+        <div class="asta"></div>
+        <div class="cornice"><div class="schermo">Video in arrivo</div></div>
+        <div class="asta"></div>
+        <figcaption>L'allestimento raccontato dall'assessore alla Cultura Davide Tarlazzi<span>Durata da definire</span></figcaption>
+      </figure>
+      <figure class="rotolo-video">
+        <div class="asta"></div>
+        <div class="cornice"><div class="schermo">Video in arrivo</div></div>
+        <div class="asta"></div>
+        <figcaption>L'invito alla città<span>Durata da definire</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="ascolta" aria-labelledby="h-ascolta">
+  <h2 id="h-ascolta">Da ascoltare</h2>
+  <div class="corpo">
+    <p>Sedici podcast geolocalizzati e multilingue, realizzati con la piattaforma Loquis, accompagnano la visita: la storia della villa, la figura di Ottorino Luciano Pomini, il movimento Gutai e le singole opere esposte. Si ascoltano gratuitamente dall'app o inquadrando i QR code in villa.</p>
+    <p>Il formato audio è pensato anche per allargare la fruizione a un pubblico più ampio, comprese le persone con disabilità visive.</p>
+    <div class="ascolto" data-in-arrivo>
+      <div class="qr">QR code<br>in arrivo</div>
+      <p data-in-arrivo><span class="segnaposto">[Link ai podcast su Loquis]</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="villa" aria-labelledby="h-villa">
+  <h2 id="h-villa">La villa</h2>
+  <div class="corpo">
+    <p>Costruita nel 1919 e intitolata al primo proprietario, Ottorino Pomini, la villa appartiene al tardo Eclettismo: mattoni a vista, bifore, loggiati, decorazioni a graffito e, a coronare l'edificio, la torretta interamente finestrata da cui si domina il panorama. Intorno, un parco di circa 5.300 metri quadrati.</p>
+    <p>Nel 1982 Luciano Pomini propose al Comune di Castellanza la cessione della villa perché diventasse un centro culturale aperto a tutti i cittadini. Oggi ospita mostre, programmi di formazione e la biblioteca donata dalla famiglia Pomini.</p>
+    <p data-in-arrivo><span class="segnaposto">[Fotografie della villa e degli spazi della mostra.]</span></p>
+  </div>
+</section>
+
+<section class="sezione" id="studenti" aria-labelledby="h-studenti">
+  <h2 id="h-studenti">Lo sguardo degli studenti</h2>
+  <div class="corpo">
+    <p>Tre classi del Liceo Artistico Statale Paolo Candiani di Busto Arsizio hanno studiato la storia della villa e del suo giardino nei percorsi di Formazione Scuola-Lavoro, coordinate dalla professoressa Anna Fumagalli. Il loro lavoro è diventato una mostra di pannelli e modelli tridimensionali, aperta al pubblico con visite guidate.</p>
+    <p data-in-arrivo><span class="segnaposto">[Date e modalità delle visite alla mostra degli studenti.]</span></p>
+  </div>
+</section>
+
+<section class="sezione" id="visita" aria-labelledby="h-visita">
+  <h2 id="h-visita">La visita</h2>
+  <div class="corpo">
+    <dl class="scheda">
+      <dt>Dove</dt>
+      <dd>Villa Pomini, via don Luigi Testori 14, 21053 Castellanza (VA)<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Villa+Pomini+via+don+Testori+14+Castellanza">Apri in Google Maps</a></dd>
+      <dt>Inaugurazione</dt>
+      <dd>Sabato 21 novembre 2026, ore 17</dd>
+      <dt>Aperture</dt>
+      <dd>Dal 22 novembre 2026<br>sabato dalle 15 alle 18.30<br>domenica dalle 10 alle 12 e dalle 15 alle 18.30</dd>
+      <dt>Ingresso</dt>
+      <dd>Gratuito</dd>
+      <dt>Visite guidate</dt>
+      <dd><span class="da-decidere"><strong>Da decidere</strong>Sono previste visite guidate? Se sì, indicare giorni, orari e come prenotare.</span></dd>
+      <dt>Accesso</dt>
+      <dd>Da via don Testori, attraverso un vialetto coperto e una breve scalinata. Per le persone con disabilità è disponibile un montascale.</dd>
+      <dt>Informazioni</dt>
+      <dd>Ufficio Cultura del Comune di Castellanza<br>tel. 0331 526263<br><a href="mailto:cultura@comune.castellanza.va.it">cultura@comune.castellanza.va.it</a></dd>
+      <dt>Ufficio stampa</dt>
+      <dd>Ufficio Stampa e Comunicazione del Comune di Castellanza<span class="da-decidere" style="margin-top:.5rem"><strong>In arrivo</strong>Recapiti dell'ufficio stampa.</span></dd>
+    </dl>
+  </div>
+</section>
+
+<section class="sezione" id="diario" aria-labelledby="h-diario">
+  <h2 id="h-diario">Diario della mostra</h2>
+  <div class="corpo">
+    <ol class="diario">
+      <li><time datetime="2026-11-21">21 novembre 2026</time>Inaugurazione della mostra a Villa Pomini.</li>
+      <li class="attesa" data-in-arrivo><time>Prossimamente</time>Il video dell'allestimento, raccontato dall'assessore alla Cultura.</li>
+      <li class="attesa" data-in-arrivo><time>Prossimamente</time>L'invito alla città.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="sezione crediti" id="crediti" aria-labelledby="h-crediti">
+  <h2 id="h-crediti">Crediti</h2>
+  <div class="corpo">
+    <dl>
+      <dt>Progetto</dt><dd>Villa Pomini Lab. Patrimonio, comunità, giovani e storytelling</dd>
+      <dt>Promosso da</dt><dd>Comune di Castellanza</dd>
+      <dt>Con il patrocinio e il contributo di</dt><dd>Regione Lombardia, Avviso Unico Cultura, Ambito A</dd>
+      <dt>Con il patrocinio di</dt><dd>Provincia di Varese, Fondazione Varese Welcome <span class="segnaposto">[terzo ente da verificare]</span></dd>
+      <dt>Restauro</dt><dd>Studio di restauro Isabella Pirola, sotto la sorveglianza della Soprintendenza</dd>
+      <dt>Allestimento</dt><dd>Arch. Gianni Fiore</dd>
+      <dt>Podcast</dt><dd>Loquis, piattaforma sviluppata da GeoRadio S.r.l.</dd>
+      <dt>Mostra didattica</dt><dd>Liceo Artistico Statale Paolo Candiani, Busto Arsizio</dd>
+      
+    </dl>
+    <div class="loghi" data-in-arrivo>
+      <span>Logo Comune di Castellanza</span><span>Logo Regione Lombardia</span><span>Logo Provincia di Varese</span><span>Logo Fondazione Varese Welcome</span><span>Logo Loquis</span><span>Logo Liceo Candiani</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="piede">
+  <div>
+    <p><strong>Città di Castellanza</strong></p>
+    <p>Viale Rimembranze 4, 21053 Castellanza (VA)</p>
+    <p>Ufficio Cultura, tel. 0331 526263</p>
+  </div>
+  <div>
+    <p><a href="https://www.comune.castellanza.va.it/">Sito del Comune</a></p>
+    <p><a href="https://www.comune.castellanza.va.it/vivere-il-comune/luoghi/dettaglio-luogo/Villa-Pomini/">Villa Pomini sul sito del Comune</a></p>
+    <p data-in-arrivo><span class="segnaposto">[Informativa privacy]</span></p>
+  </div>
+</footer>
+
+<dialog class="lente" aria-label="Opera ingrandita">
+  <button type="button" data-chiudi>Chiudi</button>
+  <img alt="">
+  <p></p>
+</dialog>
+
+<script>
+/* Ingrandimento delle opere: si attiva da solo sulle immagini inserite con
+   <figure class="opera"><button><div class="cornice"><img ...></div></button>... */
+(function(){
+  var d=document.querySelector('dialog.lente'); if(!d||!d.showModal) return;
+  var im=d.querySelector('img'), tx=d.querySelector('p');
+  document.querySelectorAll('.opera button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var src=b.querySelector('img'); if(!src) return;
+      im.src=src.dataset.grande||src.src; im.alt=src.alt;
+      var c=b.closest('figure').querySelector('figcaption'); tx.textContent=c?c.textContent:'';
+      d.showModal();
+    });
+  });
+  d.querySelector('[data-chiudi]').addEventListener('click',function(){d.close()});
+  d.addEventListener('click',function(e){if(e.target===d)d.close()});
+})();
+</script>
+</body>
+</html>
