@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="bozza">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,6 +94,24 @@ img{max-width:100%;display:block}
 /* da decidere: visibile anche fuori bozza, per la revisione interna */
 .da-decidere{display:block;background:#FFF3CD;border:2px solid #C98A00;color:#5A3E00;padding:.6rem .9rem;font-size:.9375rem;line-height:1.5}
 .da-decidere strong{display:block;color:#5A3E00}
+/* bozza per la revisione */
+.nota-bozza{display:none}
+html.bozza .nota-bozza{display:block;background:var(--verdone);color:#fff;padding:1rem var(--margine);font-size:.9375rem;line-height:1.55}
+html.bozza .nota-bozza strong{color:#fff}
+.legenda{display:inline-block;padding:0 .35em;margin:0 .15em}
+.legenda.giallo{background:#FFF3CD;color:#5A3E00}
+.legenda.azzurro{background:#E3F1F3;color:var(--ai)}
+.provv{display:none}
+html.bozza .provv{display:inline-block;font-size:.75rem;font-weight:500;color:var(--ai);border:1px dashed var(--ai);padding:0 .45rem;margin:0 0 .6rem;letter-spacing:.02em}
+[data-rinviato]{display:none!important}
+.specifica{display:block;color:var(--ai);background:#E3F1F3;border-left:3px solid var(--azzurro);padding:.6rem .9rem;font-size:.9375rem;line-height:1.55}
+.specifica strong{display:block;color:var(--verdone)}
+html:not(.bozza) .specifica{display:none}
+/* continua a leggere */
+.seguito[hidden]{display:none}
+.leggi{all:unset;cursor:pointer;color:var(--ai);font-weight:500;border-bottom:1px solid var(--azzurro);padding-bottom:1px;margin-top:.25rem;display:inline-block}
+.leggi:hover{color:var(--verdone)}
+.leggi:focus-visible{outline:2px solid var(--ai);outline-offset:3px}
 /* segnaposto: visibili solo in bozza */
 .segnaposto{color:var(--ai);background:rgba(44,74,110,.07);border-bottom:1px dashed var(--ai);padding:0 .2em}
 html:not(.bozza) [data-in-arrivo],html:not(.bozza) .segnaposto{display:none}
@@ -221,6 +239,7 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
   </nav>
 </header>
 
+<div class="nota-bozza" role="note"><strong>Bozza per la revisione interna.</strong> I testi presenti sono provvisori, ricavati dal comunicato stampa e dal sito del Comune, e vanno validati. I riquadri <span class="legenda azzurro">azzurri</span> indicano i contenuti da fornire, quelli <span class="legenda giallo">gialli</span> le decisioni da prendere o le verifiche da fare.</div>
 <main id="contenuto">
 
 <section class="apertura" aria-labelledby="titolo-mostra">
@@ -240,28 +259,35 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
   <blockquote>
     <p>«Un patrimonio culturale inedito e dimenticato, ma capace di raccontare una grande pagina del collezionismo italiano del Secondo dopoguerra».</p>
   </blockquote>
-  <figcaption>Davide Tarlazzi, assessore a Cultura e Istruzione del Comune di Castellanza</figcaption>
+  <figcaption><span class="provv" style="color:#7CC3C4;border-color:#7CC3C4">Citazione provvisoria</span><br>Davide Tarlazzi, assessore a Cultura e Istruzione del Comune di Castellanza</figcaption>
 </figure>
 
 <section class="sezione" id="mostra" aria-labelledby="h-mostra">
   <h2 id="h-mostra">La mostra</h2>
   <div class="corpo">
+    <span class="provv">Testo provvisorio, da validare</span>
     <p>Un nucleo di dipinti di artisti giapponesi realizzati tra il 1958 e il 1960 torna a essere visibile dopo il restauro. Le opere fanno parte della raccolta di quadri che l'industriale e collezionista Ottorino Luciano Pomini ha donato al Comune di Castellanza, e vengono presentate in un nuovo allestimento permanente negli spazi della villa.</p>
-    <p data-in-arrivo><span class="segnaposto">[Testo curatoriale: correnti e artisti presenti in mostra, a partire dal movimento Gutai; il senso della raccolta e il suo legame con il collezionista.]</span></p>
+    <div class="seguito" data-leggi>
+      <p><span class="specifica"><strong>Testo curatoriale (da fornire)</strong>Correnti e artisti presenti in mostra, a partire dal movimento Gutai; perché il periodo 1958-1960; il senso della raccolta. È la parte lunga del testo: si apre con «Continua a leggere».</span></p>
+    </div>
   </div>
 </section>
 
 <section class="sezione" id="collezionista" aria-labelledby="h-collezionista" data-in-arrivo>
   <h2 id="h-collezionista">Il collezionista</h2>
   <div class="corpo">
-    <p data-in-arrivo><span class="segnaposto">[Chi era Ottorino Luciano Pomini: la storia, l'attività industriale, la passione per l'arte, la donazione al Comune. Testi in arrivo.]</span></p>
+    <p><span class="specifica"><strong>Introduzione (da fornire, 3-4 righe)</strong>Chi era Ottorino Luciano Pomini in poche righe: è la parte sempre visibile.</span></p>
+    <div class="seguito" data-leggi>
+      <p><span class="specifica"><strong>Racconto completo (da fornire)</strong>La storia e il personaggio: la famiglia, l'attività industriale, la passione per l'arte e il collezionismo, il legame con Castellanza, la donazione al Comune. Può essere lungo: si legge aprendo «Continua a leggere».</span></p>
+      <p><span class="specifica"><strong>Fotografia (se disponibile)</strong>Un ritratto del collezionista, con il credito fotografico e il permesso di pubblicarlo online.</span></p>
+    </div>
   </div>
 </section>
 
 <section class="sezione" id="opere" aria-labelledby="h-opere" data-in-arrivo>
   <h2 id="h-opere">Le opere</h2>
   <div class="corpo larga">
-    <p style="max-width:42rem" data-in-arrivo><span class="segnaposto">[Breve introduzione alle opere esposte.]</span></p>
+    <p style="max-width:42rem"><span class="specifica"><strong>Da fornire</strong>Una breve introduzione alle opere esposte; per ogni opera la fotografia in alta risoluzione, con credito fotografico e permesso di pubblicazione online, e la didascalia completa: autore, titolo, anno, tecnica, misure.</span></p>
     <div class="parete">
       <figure class="opera"><div class="cornice"><div class="vuoto r-v">Fotografia in arrivo</div></div>
         <figcaption><strong>Autore</strong><em>Titolo</em>, anno<br>Tecnica, misure</figcaption></figure>
@@ -282,13 +308,14 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
 <section class="sezione" id="restauro" aria-labelledby="h-restauro">
   <h2 id="h-restauro">Il restauro</h2>
   <div class="corpo">
+    <span class="provv">Testo provvisorio, da validare</span>
     <p>Prima di tornare alle pareti, le opere sono state restaurate dallo Studio di restauro di Isabella Pirola, sotto la sorveglianza della Soprintendenza. L'allestimento è curato dall'architetto Gianni Fiore.</p>
     <p>La mostra è accompagnata da una pubblicazione divulgativa che inquadra il contesto storico-artistico, le singole opere e la figura del collezionista.</p>
-    <p data-in-arrivo><span class="segnaposto">[Eventuali immagini del cantiere di restauro, prima e dopo.]</span></p>
+    <p><span class="specifica"><strong>Da fornire (facoltativo)</strong>Testo da verificare con lo Studio Pirola; eventuali fotografie del restauro, prima e dopo, con crediti.</span></p>
   </div>
 </section>
 
-<section class="sezione" id="video" aria-labelledby="h-video" data-in-arrivo>
+<section class="sezione" id="video" aria-labelledby="h-video" data-rinviato>
   <h2 id="h-video">I video</h2>
   <div class="corpo larga">
     <div class="rotoli">
@@ -311,11 +338,12 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
 <section class="sezione" id="ascolta" aria-labelledby="h-ascolta">
   <h2 id="h-ascolta">Da ascoltare</h2>
   <div class="corpo">
+    <span class="provv">Testo provvisorio, da validare</span>
     <p>Sedici podcast geolocalizzati e multilingue, realizzati con la piattaforma Loquis, accompagnano la visita: la storia della villa, la figura di Ottorino Luciano Pomini, il movimento Gutai e le singole opere esposte. Si ascoltano gratuitamente dall'app o inquadrando i QR code in villa.</p>
     <p>Il formato audio è pensato anche per allargare la fruizione a un pubblico più ampio, comprese le persone con disabilità visive.</p>
     <div class="ascolto" data-in-arrivo>
       <div class="qr">QR code<br>in arrivo</div>
-      <p data-in-arrivo><span class="segnaposto">[Link ai podcast su Loquis]</span></p>
+      <p style="max-width:28rem"><span class="specifica"><strong>Da fornire</strong>Il link ai podcast su Loquis e il QR code. Quando saranno disponibili?</span></p>
     </div>
   </div>
 </section>
@@ -323,17 +351,20 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
 <section class="sezione" id="villa" aria-labelledby="h-villa">
   <h2 id="h-villa">La villa</h2>
   <div class="corpo">
+    <span class="provv">Testo provvisorio, da validare</span>
     <p>Costruita nel 1919 e intitolata al primo proprietario, Ottorino Pomini, la villa appartiene al tardo Eclettismo: mattoni a vista, bifore, loggiati, decorazioni a graffito e, a coronare l'edificio, la torretta interamente finestrata da cui si domina il panorama. Intorno, un parco di circa 5.300 metri quadrati.</p>
     <p>Nel 1982 Luciano Pomini propose al Comune di Castellanza la cessione della villa perché diventasse un centro culturale aperto a tutti i cittadini. Oggi ospita mostre, programmi di formazione e la biblioteca donata dalla famiglia Pomini.</p>
-    <p data-in-arrivo><span class="segnaposto">[Fotografie della villa e degli spazi della mostra.]</span></p>
+    <p><span class="da-decidere"><strong>Da verificare</strong>Nelle fonti compaiono Ottorino Pomini (primo proprietario, 1919), Luciano Pomini (cessione al Comune, 1982) e Ottorino Luciano Pomini (il collezionista). Sono persone diverse o la stessa? Il testo va corretto di conseguenza.</span></p>
+    <p><span class="specifica"><strong>Da fornire</strong>Fotografie della villa e degli spazi della mostra, con crediti.</span></p>
   </div>
 </section>
 
 <section class="sezione" id="studenti" aria-labelledby="h-studenti">
   <h2 id="h-studenti">Lo sguardo degli studenti</h2>
   <div class="corpo">
+    <span class="provv">Testo provvisorio, da validare</span>
     <p>Tre classi del Liceo Artistico Statale Paolo Candiani di Busto Arsizio hanno studiato la storia della villa e del suo giardino nei percorsi di Formazione Scuola-Lavoro, coordinate dalla professoressa Anna Fumagalli. Il loro lavoro è diventato una mostra di pannelli e modelli tridimensionali, aperta al pubblico con visite guidate.</p>
-    <p data-in-arrivo><span class="segnaposto">[Date e modalità delle visite alla mostra degli studenti.]</span></p>
+    <p><span class="specifica"><strong>Da fornire</strong>Date e modalità delle visite alla mostra degli studenti; eventuali fotografie dei pannelli e dei modelli.</span></p>
   </div>
 </section>
 
@@ -346,7 +377,7 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
       <dt>Inaugurazione</dt>
       <dd>Sabato 21 novembre 2026, ore 17</dd>
       <dt>Aperture</dt>
-      <dd>Dal 22 novembre 2026<br>sabato dalle 15 alle 18.30<br>domenica dalle 10 alle 12 e dalle 15 alle 18.30</dd>
+      <dd>Dal 22 novembre 2026<br>sabato dalle 15 alle 18.30<br>domenica dalle 10 alle 12 e dalle 15 alle 18.30<span class="da-decidere" style="margin-top:.5rem"><strong>Da decidere</strong>Fino a quando resta aperta la mostra? Manca la data di chiusura.</span></dd>
       <dt>Ingresso</dt>
       <dd>Gratuito</dd>
       <dt>Visite guidate</dt>
@@ -366,8 +397,8 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
   <div class="corpo">
     <ol class="diario">
       <li><time datetime="2026-11-21">21 novembre 2026</time>Inaugurazione della mostra a Villa Pomini.</li>
-      <li class="attesa" data-in-arrivo><time>Prossimamente</time>Il video dell'allestimento, raccontato dall'assessore alla Cultura.</li>
-      <li class="attesa" data-in-arrivo><time>Prossimamente</time>L'invito alla città.</li>
+      <li class="attesa" data-rinviato><time>Prossimamente</time>Il video dell'allestimento, raccontato dall'assessore alla Cultura.</li>
+      <li class="attesa" data-rinviato><time>Prossimamente</time>L'invito alla città.</li>
     </ol>
   </div>
 </section>
@@ -384,6 +415,7 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
       <dt>Allestimento</dt><dd>Arch. Gianni Fiore</dd>
       <dt>Podcast</dt><dd>Loquis, piattaforma sviluppata da GeoRadio S.r.l.</dd>
       <dt>Mostra didattica</dt><dd>Liceo Artistico Statale Paolo Candiani, Busto Arsizio</dd>
+      <dt data-in-arrivo>Curatela</dt><dd data-in-arrivo><span class="segnaposto">[da indicare: chi ha curato la mostra e i testi]</span></dd>
       
     </dl>
     <div class="loghi" data-in-arrivo>
@@ -414,6 +446,18 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
 </dialog>
 
 <script>
+/* Continua a leggere: il seguito si apre nella stessa pagina. Senza JavaScript resta tutto visibile. */
+document.querySelectorAll('.seguito[data-leggi]').forEach(function(box,i){
+  box.id=box.id||('seguito-'+i); box.hidden=true;
+  var b=document.createElement('button'); b.type='button'; b.className='leggi';
+  b.setAttribute('aria-controls',box.id); b.setAttribute('aria-expanded','false'); b.textContent='Continua a leggere';
+  b.addEventListener('click',function(){
+    var apri=box.hidden; box.hidden=!apri;
+    b.setAttribute('aria-expanded',String(apri)); b.textContent=apri?'Riduci':'Continua a leggere';
+    if(!apri) box.parentElement.scrollIntoView({block:'nearest',behavior:'smooth'});
+  });
+  box.after(b);
+});
 /* Ingrandimento delle opere: si attiva da solo sulle immagini inserite con
    <figure class="opera"><button><div class="cornice"><img ...></div></button>... */
 (function(){
