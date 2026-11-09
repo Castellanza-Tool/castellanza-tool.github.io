@@ -202,6 +202,9 @@ html:not(.bozza) [data-in-arrivo],html:not(.bozza) .segnaposto{display:none}
 .loghi-enti .gruppo{text-align:center}
 .loghi-enti .fila{display:flex;justify-content:center;align-items:center;gap:1.75rem;flex-wrap:wrap;min-height:60px}
 .loghi-enti img{width:auto;display:block}
+.loghi-enti a{display:block;line-height:0;transition:opacity .2s}
+.loghi-enti a:hover{opacity:.7}
+.loghi-enti a:focus-visible{outline:2px solid var(--ai);outline-offset:4px}
 .ente-piede{display:flex;gap:1rem;align-items:center}
 .ente-piede p:last-child{margin-bottom:0}
 .ente-piede img{width:52px;height:auto;flex:none}
@@ -515,21 +518,21 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
 <section class="loghi-enti" aria-label="Enti e partner">
   <div class="gruppo">
     <p>Con il patrocinio e il contributo di</p>
-    <div class="fila"><img src="img/loghi/regione-lombardia.png" alt="Regione Lombardia" height="60" style="height:60px"></div>
+    <div class="fila"><a href="https://www.regione.lombardia.it/" rel="noopener" target="_blank" title="Regione Lombardia (si apre in una nuova finestra)"><img src="img/loghi/regione-lombardia.png" alt="Regione Lombardia" height="60" style="height:60px"></a></div>
   </div>
   <div class="gruppo">
     <p>Con il patrocinio di</p>
     <div class="fila">
-      <img src="img/loghi/consolato-giappone.png" alt="Consolato Generale del Giappone a Milano" height="60" style="height:60px">
-      <img src="img/loghi/provincia-varese.png" alt="Provincia di Varese" height="46" style="height:46px">
-      <img src="img/loghi/fondazione-varese-welcome.png" alt="Fondazione Varese Welcome" height="26" style="height:26px">
+      <a href="https://www.milano.it.emb-japan.go.jp/itprtop_it/index.html" rel="noopener" target="_blank" title="Consolato Generale del Giappone a Milano (si apre in una nuova finestra)"><img src="img/loghi/consolato-giappone.png" alt="Consolato Generale del Giappone a Milano" height="60" style="height:60px"></a>
+      <a href="https://www.provincia.varese.it/" rel="noopener" target="_blank" title="Provincia di Varese (si apre in una nuova finestra)"><img src="img/loghi/provincia-varese.png" alt="Provincia di Varese" height="46" style="height:46px"></a>
+      <a href="https://www.varesewelcome.it/" rel="noopener" target="_blank" title="Fondazione Varese Welcome (si apre in una nuova finestra)"><img src="img/loghi/fondazione-varese-welcome.png" alt="Fondazione Varese Welcome" height="26" style="height:26px"></a>
     </div>
   </div>
   <div class="gruppo">
     <p>Con la partecipazione di</p>
     <div class="fila">
-      <img src="img/loghi/besana.png" alt="Besana Carpet Lab" height="40" style="height:40px">
-      <img src="img/loghi/erco.png" alt="ERCO" height="34" style="height:34px;position:relative;top:-5px">
+      <a href="https://besanamoquette.com/" rel="noopener" target="_blank" title="Besana Carpet Lab (si apre in una nuova finestra)"><img src="img/loghi/besana.png" alt="Besana Carpet Lab" height="40" style="height:40px"></a>
+      <a href="https://www.erco.com/it/" rel="noopener" target="_blank" title="ERCO (si apre in una nuova finestra)"><img src="img/loghi/erco.png" alt="ERCO" height="34" style="height:34px;position:relative;top:-5px"></a>
     </div>
   </div>
 </section>
