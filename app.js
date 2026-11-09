@@ -6,7 +6,7 @@
   var ETICHETTE_TIPO = { viabilita: 'Viabilità', avviso: 'Avviso', urgente: 'Urgente', concluso: 'Concluso' };
   var REFRESH_MS = 60000;
   var FILE_DATI = 'dati.json';
-  var VERSIONE = '20261102c'; // deve coincidere con settings.versioneApp in dati.json e con ?v= in index.html
+  var VERSIONE = '20261109a'; // deve coincidere con settings.versioneApp in dati.json e con ?v= in index.html
 
   var map = L.map('map', { scrollWheelZoom: true }).setView(CENTRO, 15);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -162,6 +162,15 @@
         lineeSpostate.push({ layer: ls, coords: s.coords, px: s.px });
       });
       (p.linee || [p.coords]).forEach(function (l) { bounds = bounds.concat(l); });
+    });
+    // 4) segnaposti con etichetta sempre visibile
+    var stretta = $('map').clientWidth < 500;
+    (d.segnaposti || []).forEach(function (sp) {
+      if (!sp.coords) return;
+      L.marker(sp.coords, { keyboard: false })
+        .bindTooltip(esc(sp.testo || ''), { permanent: true, direction: (stretta && sp.direzioneTelefono) || sp.direzione || 'right', offset: (stretta && sp.spostamentoTelefono) || sp.spostamento || [14, -20], className: 'etichetta-segnaposto' })
+        .addTo(livello);
+      bounds.push(sp.coords);
     });
     var pulsanti = [];
     percorsi.forEach(function (p) {

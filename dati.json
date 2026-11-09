@@ -1,111 +1,28 @@
 {
  "settings": {
   "titolo": "Lavori sulla rete dell’acqua: la viabilità aggiornata",
-  "introduzione": "Riprendono i lavori di CAP Holding sulla rete idrica comunale. Sulla mappa trovate in rosso le corsie interessate dalle modifiche, con le frecce il senso di marcia consentito, in blu i percorsi consigliati per Marnate e in verde il percorso alternativo da viale Lombardia.",
+  "introduzione": "Proseguono i lavori di CAP Holding sulla rete idrica comunale all’incrocio tra via Piave, via Sempione, corso Matteotti e via Luigi Pomini. Sulla mappa trovate in rosso la corsia interessata dal cantiere, in blu i percorsi consigliati per Marnate e in verde il percorso alternativo da viale Lombardia.",
   "situazioni": [
    {
-    "testo": "Da martedì 3 novembre riprendono i lavori alla rete idrica di CAP Holding all’intersezione tra via Piave, via Sempione, corso Matteotti e via Luigi Pomini e la viabilità sarà gestita nel seguente modo:\n\n- Non sarà possibile percorrere via Luigi Pomini nella corsia di marcia che va dall’intersezione tra via Luigi Pomini e via don Testori fino all’incrocio tra via Luigi Pomini e corso Matteotti. L’altra corsia, in direzione viale Don Minzoni, rimane aperta al transito.\n- I lavori continueranno in via Piave con l’occupazione della corsia di marcia di destra, ossia in direzione Marnate, che va dall’intersezione tra via Piave e corso Matteotti fino all’intersezione tra via Piave e via Piola. Da Marnate in direzione Castellanza si potrà procedere.\n- Chi percorre corso Matteotti in direzione Busto Arsizio, all’incrocio semaforico non potrà svoltare a destra in via Piave direzione Marnate. Percorso consigliato per Marnate: prendere via per Olgiate Olona (in blu sulla mappa) oppure prendere direttamente viale Lombardia dalla via Saronnese (in verde sulla mappa).\n- Chi proviene da Busto Arsizio non potrà svoltare a sinistra in via Piave. Percorso consigliato per Marnate: prendere via Costalunga, piazza Castegnate e via Piola (in blu sulla mappa)."
+    "testo": "Da martedì 10 novembre a lunedì 30 novembre all’incrocio tra via Piave, via Sempione, corso Matteotti e via Luigi Pomini la viabilità cambia così. Dall’incrocio non si può entrare in via Piave e chi arriva da via Piave deve svoltare verso Busto Arsizio.\n\n- **Da via Piave** (provenienza Marnate e viale Lombardia): obbligo di svolta a destra in via Sempione, direzione Busto Arsizio. Non si può proseguire dritto in via Luigi Pomini né svoltare a sinistra in corso Matteotti.\n- **Da via Luigi Pomini** (provenienza via Don Testori): la corsia verso l’incrocio torna aperta. Si può svoltare a destra in corso Matteotti o a sinistra in via Sempione, ma non proseguire dritto in via Piave.\n- **Da corso Matteotti** (provenienza Legnano): si prosegue dritto in via Sempione, direzione Busto Arsizio, oppure si svolta a sinistra in via Luigi Pomini. Non si può svoltare a destra in via Piave. Per Marnate: via per Olgiate Olona (in blu sulla mappa) oppure viale Lombardia dalla via Saronnese (in verde).\n- **Da via Sempione** (provenienza Busto Arsizio): si prosegue dritto in corso Matteotti oppure si svolta a destra in via Luigi Pomini. Non si può svoltare a sinistra in via Piave. Per Marnate: via Costalunga, piazza Castegnate e via Piola (in blu sulla mappa)."
    }
   ],
   "situazioneOggi": "",
   "contatti": "",
   "notaMappa": "Il disegno sulla mappa è indicativo. Fonte cartografica: OpenStreetMap.",
-  "versioneApp": "20261102c",
+  "versioneApp": "20261109a",
   "whatsapp": {
-   "id": "cap-2026-11-05-proroga",
-   "testo": "**CAP Holding ha comunicato che i lavori si prolungano.** Il cantiere all’incrocio tra via Piave, via Sempione, corso Matteotti e via Luigi Pomini resterà fino a lunedì 9 novembre.\n\nFino ad allora la viabilità non cambia. In via Luigi Pomini resta aperta solo la corsia verso viale Don Minzoni. In via Piave, tra corso Matteotti e via Piola, resta aperta solo la corsia da Marnate verso Castellanza. All’incrocio non si può svoltare in via Piave verso Marnate."
+   "id": "cap-2026-11-10-piave-destra",
+   "testo": "**DA MARTEDÌ 10 NOVEMBRE CAMBIA LA VIABILITÀ ALL’INCROCIO TRA VIA PIAVE, VIA SEMPIONE, CORSO MATTEOTTI E VIA LUIGI POMINI** per i lavori di CAP Holding sulla rete idrica. Le modifiche resteranno fino a lunedì 30 novembre.\n\nChi arriva da via Piave deve svoltare a destra verso Busto Arsizio. Via Luigi Pomini torna aperta verso l’incrocio, con svolta a destra in corso Matteotti o a sinistra in via Sempione. Da corso Matteotti e da via Sempione resta vietata la svolta in via Piave."
   }
  },
  "tratti": [
   {
-   "id": "pomini-chiusa-matteotti",
-   "nome": "Via Luigi Pomini: chiusa in direzione corso Matteotti",
-   "stato": "in_corso",
-   "legenda": "Corsie interessate dalle modifiche",
-   "note": "Aperta la corsia in direzione viale Don Minzoni.",
-   "coords": [
-    [
-     45.61329,
-     8.894069
-    ],
-    [
-     45.613382,
-     8.894393
-    ],
-    [
-     45.613409,
-     8.894487
-    ],
-    [
-     45.613436,
-     8.894576
-    ],
-    [
-     45.613495,
-     8.89476
-    ],
-    [
-     45.613572,
-     8.894966
-    ],
-    [
-     45.613604,
-     8.895045
-    ],
-    [
-     45.613631,
-     8.895105
-    ],
-    [
-     45.613656,
-     8.895162
-    ],
-    [
-     45.613693,
-     8.895236
-    ],
-    [
-     45.613719,
-     8.895289
-    ],
-    [
-     45.613825,
-     8.895509
-    ],
-    [
-     45.614109,
-     8.896093
-    ],
-    [
-     45.614274,
-     8.896429
-    ],
-    [
-     45.614311,
-     8.896496
-    ],
-    [
-     45.614341,
-     8.896538
-    ],
-    [
-     45.614383,
-     8.896556
-    ],
-    [
-     45.614468,
-     8.896563
-    ]
-   ],
-   "spessore": 5,
-   "frecce": "indietro"
-  },
-  {
    "id": "piave-chiusa-marnate",
-   "nome": "Via Piave: chiusa in direzione Marnate",
+   "nome": "Via Piave: area di cantiere",
    "stato": "in_corso",
-   "legenda": "Corsie interessate dalle modifiche",
-   "note": "Aperta la corsia da Marnate in direzione Castellanza.",
+   "legenda": "Corsie interessate dal cantiere",
+   "note": "Da via Piave si può solo svoltare a destra verso Busto Arsizio.",
    "coords": [
     [
      45.614468,
@@ -928,5 +845,24 @@
    "testo": "Da lunedì 19 ottobre via Sempione resta chiusa in direzione Legnano a partire dall’intersezione con via Sanguinola. Chi è diretto a Legnano (o agli ingressi autostradali) deve imboccare viale Don Minzoni. Il transito sul Sempione resta consentito in direzione Busto Arsizio ai veicoli provenienti da Castellanza centro.\n\nAi veicoli provenienti da Busto Arsizio e diretti in Valle Olona è obbligatorio svoltare a sinistra alla rotatoria tra via Sempione e via Morelli di Olgiate Olona. Ai veicoli provenienti da Olgiate Olona da via Morelli e diretti a Legnano è obbligatorio girare a sinistra alla rotatoria e poi subito a destra in via Sanguinola. I veicoli provenienti da via per Olgiate Olona e diretti verso via Sempione saranno obbligati a svoltare a destra in via Sempione – direzione Busto Arsizio."
   }
  ],
- "aggiornatoIl": "2026-11-05T11:07:12.000Z"
+ "aggiornatoIl": "2026-11-09T12:58:14.000Z",
+ "segnaposti": [
+  {
+   "coords": [
+    45.614566,
+    8.896573
+   ],
+   "testo": "Obbligo di svolta a destra per chi arriva da via Piave",
+   "direzione": "bottom",
+   "spostamento": [
+    -16,
+    36
+   ],
+   "direzioneTelefono": "right",
+   "spostamentoTelefono": [
+    40,
+    -50
+   ]
+  }
+ ]
 }
