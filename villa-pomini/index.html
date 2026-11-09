@@ -202,8 +202,10 @@ html:not(.bozza) [data-in-arrivo],html:not(.bozza) .segnaposto{display:none}
 .loghi-enti .gruppo{text-align:center}
 .loghi-enti .fila{display:flex;justify-content:center;align-items:center;gap:1.75rem;flex-wrap:wrap;min-height:60px}
 .loghi-enti img{width:auto;display:block}
-.ente-piede{display:flex;gap:1rem;align-items:flex-start}
+.ente-piede{display:flex;gap:1rem;align-items:center}
+.ente-piede p:last-child{margin-bottom:0}
 .ente-piede img{width:52px;height:auto;flex:none}
+.nota-cookie{font-size:.8125rem;color:#BFD3D0}
 /* ---------- ingrandimento ---------- */
 dialog.lente{border:0;padding:0;background:transparent;max-width:min(92vw,70rem);max-height:92vh}
 dialog.lente::backdrop{background:rgba(240,241,237,.96)}
@@ -304,9 +306,9 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
       <p><span class="specifica"><strong>Testo curatoriale (da fornire)</strong>Correnti e artisti presenti in mostra, a partire dal movimento Gutai; perché il periodo 1958-1960; il senso della raccolta. È la parte lunga del testo: si apre con «Continua a leggere».</span></p>
     </div>
     <dl class="colophon">
-      <dt>Esposizione permanente promossa da</dt><dd>Città di Castellanza</dd>
-      <dt>Curatela, catalogo e apparati didattici</dt><dd>Davide Tarlazzi<br>Giulia Briguori</dd>
-      <dt>Progetto espositivo, progetto grafico e progetto illuminotecnico</dt><dd>Gianni Fiore</dd>
+      <dt>Esposizione permanente<br>promossa da</dt><dd>Città di Castellanza</dd>
+      <dt>Curatela, catalogo<br>e apparati didattici</dt><dd>Davide Tarlazzi<br>Giulia Briguori</dd>
+      <dt>Progetto espositivo,<br>progetto grafico<br>e progetto illuminotecnico</dt><dd>Gianni Fiore</dd>
       <dt>Allestimento</dt><dd>Gobbo Allestimenti<span>Legnano (MI)</span></dd>
       <dt>Restauri</dt><dd>Studio di restauro di Isabella Pirola<span>Vanzaghello (MI)</span></dd>
       <dt>Audioracconto</dt><dd>Loquis</dd>
@@ -527,7 +529,7 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
     <p>Con la partecipazione di</p>
     <div class="fila">
       <img src="img/loghi/besana.png" alt="Besana Carpet Lab" height="40" style="height:40px">
-      <img src="img/loghi/erco.png" alt="ERCO" height="34" style="height:34px">
+      <img src="img/loghi/erco.png" alt="ERCO" height="34" style="height:34px;position:relative;top:-5px">
     </div>
   </div>
 </section>
@@ -544,7 +546,8 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
   <div>
     <p><a href="https://www.comune.castellanza.va.it/">Sito del Comune</a></p>
     <p><a href="https://www.comune.castellanza.va.it/vivere-il-comune/luoghi/dettaglio-luogo/Villa-Pomini/">Villa Pomini sul sito del Comune</a></p>
-    <p data-in-arrivo><span class="segnaposto">[Informativa privacy]</span></p>
+    <p><a href="https://www.comune.castellanza.va.it/info-e-contatti/privacy/privacy/">Informativa privacy</a> · <a href="https://www.comune.castellanza.va.it/info-e-contatti/privacy/cookies/">Cookie</a> · <a href="https://www.comune.castellanza.va.it/info-e-contatti/privacy/note-legali/">Note legali</a></p>
+    <p class="nota-cookie">Questa pagina non usa cookie né servizi di terze parti.</p>
   </div>
 </footer>
 
