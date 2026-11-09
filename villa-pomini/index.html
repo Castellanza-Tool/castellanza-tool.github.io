@@ -166,11 +166,15 @@ html:not(.bozza) [data-in-arrivo],html:not(.bozza) .segnaposto{display:none}
 @media (max-width:560px){.colophon{grid-template-columns:1fr}.colophon dt{border-bottom:0;padding-bottom:0}}
 /* ---------- eventi ---------- */
 .eventi{list-style:none;margin:0;padding:0;border-top:2px solid var(--azzurro)}
-.eventi li{display:grid;grid-template-columns:6.5rem 1fr;gap:1.25rem;padding:1.1rem 0;border-bottom:1px solid var(--filo)}
+.eventi li{display:grid;grid-template-columns:8rem 1fr;gap:1.25rem;padding:1.1rem 0;border-bottom:1px solid var(--filo)}
 .eventi time{font-family:var(--stampatello);font-weight:700;text-transform:uppercase;color:var(--verdone);font-size:1.6rem;line-height:1}
 .eventi time small{display:block;font-size:.95rem;font-weight:600;color:var(--ai);letter-spacing:.03em;margin-top:.2rem}
-.eventi h3{margin:0 0 .25rem;font-size:1.0625rem;font-weight:500}
+.eventi h3{margin:0 0 .3rem;font-family:var(--mincho);font-size:1.3rem;line-height:1.3;font-weight:500;color:var(--verdone)}
 .eventi p{margin:0;color:var(--pietra)}
+.eventi p.sotto{color:var(--sumi);margin-bottom:.35rem}
+.eventi time small{text-transform:none}
+.capitolo{font-family:var(--stampatello);font-weight:700;text-transform:uppercase;letter-spacing:.02em;color:var(--ai);font-size:1.35rem;line-height:1.15;margin:2.5rem 0 .9rem}
+.nota-eventi{margin:1.25rem 0 0;font-size:.875rem;color:var(--pietra)}
 /* ---------- diario ---------- */
 .diario{list-style:none;margin:0;padding:0;border-left:2px solid var(--azzurro)}
 .diario li{position:relative;padding:0 0 2rem 1.75rem}
@@ -260,7 +264,7 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
   <nav aria-label="Sezioni della pagina">
     <ul>
       <li><a href="#mostra">La mostra</a></li>
-      <li data-in-arrivo><a href="#eventi">Gli eventi</a></li>
+      <li><a href="#eventi">Gli eventi</a></li>
       <li><a href="#visita">La visita</a></li>
       <li><a href="https://www.comune.castellanza.va.it/">Città di Castellanza</a></li>
     </ul>
@@ -406,14 +410,43 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
   </div>
 </section>
 
-<section class="sezione" id="eventi" aria-labelledby="h-eventi" data-in-arrivo>
+<section class="sezione" id="eventi" aria-labelledby="h-eventi">
   <h2 id="h-eventi">Gli eventi</h2>
   <div class="corpo">
     <ol class="eventi">
-      <li><time datetime="2026-11-22">22 nov<small>domenica</small></time><div><h3><span class="segnaposto">[titolo dell'evento]</span></h3><p><span class="segnaposto">[orario e descrizione]</span></p></div></li>
-      <li><time datetime="2026-11-29">29 nov<small>domenica</small></time><div><h3><span class="segnaposto">[titolo dell'evento]</span></h3><p><span class="segnaposto">[orario e descrizione]</span></p></div></li>
-      <li><time datetime="2026-12-05">5 dic<small>sabato</small></time><div><h3><span class="segnaposto">[titolo dell'evento]</span></h3><p><span class="segnaposto">[orario e descrizione]</span></p></div></li>
+      <li>
+        <time datetime="2026-11-22T17:00">22 nov<small>domenica, ore 17</small></time>
+        <div>
+          <h3>Studiare restaurare ed esporre</h3>
+          <p class="sotto">La valorizzazione dei quadri giapponesi di Villa Pomini</p>
+          <p>Con Davide Tarlazzi, curatore del progetto; Isabella Pirola, restauratrice; Gianni Fiore, exhibition designer</p>
+        </div>
+      </li>
+      <li>
+        <time datetime="2026-11-29T17:00">29 nov<small>domenica, ore 17</small></time>
+        <div>
+          <h3>Il tramonto del mondo fluttuante è a Occidente</h3>
+          <p>Con Paolo Linetti, direttore del Museo d'Arte Orientale «Mazzocchi» di Coccaglio (Brescia)</p>
+        </div>
+      </li>
     </ol>
+    <h3 class="capitolo">Dal 5 dicembre: Villa Pomini tra storia e innovazione</h3>
+    <ol class="eventi">
+      <li>
+        <time datetime="2026-12-05T15:00">5 dic<small>sabato, ore 15</small></time>
+        <div>
+          <h3>Presentazione della ricerca e dei progetti</h3>
+          <p>Con le classi 4ª A-AS-D e i docenti del Liceo Artistico «P. Candiani» di Busto Arsizio</p>
+        </div>
+      </li>
+      <li>
+        <time datetime="2026-12-06T15:00">6 dic<small>domenica, 15-18.30</small></time>
+        <div>
+          <h3>Visite guidate dagli studenti</h3>
+        </div>
+      </li>
+    </ol>
+    <p class="nota-eventi">Gli incontri si tengono a Villa Pomini, via don Luigi Testori 14, Castellanza.</p>
   </div>
 </section>
 
@@ -427,8 +460,8 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
       <dd>Sabato 21 novembre 2026, ore 17</dd>
       <dt>Aperture</dt>
       <dd>Dal 22 novembre 2026 al 10 gennaio 2027<br>sabato dalle 15 alle 18.30<br>domenica dalle 10 alle 12 e dalle 15 alle 18.30</dd>
-      <dt data-in-arrivo>Aperture straordinarie</dt>
-      <dd data-in-arrivo><span class="segnaposto">[date e orari delle aperture straordinarie]</span></dd>
+      <dt>Aperture straordinarie</dt>
+      <dd>Martedì 8 dicembre 2026, dalle 15 alle 18.30<br>Mercoledì 6 gennaio 2027, dalle 15 alle 18.30<br>Chiuso sabato 26 dicembre 2026</dd>
       <dt>Ingresso</dt>
       <dd>Gratuito</dd>
       <dt>Visite guidate</dt>
