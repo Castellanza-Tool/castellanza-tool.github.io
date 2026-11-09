@@ -60,12 +60,14 @@ img{max-width:100%;display:block}
 .titolo .sottotitolo{font-family:var(--stampatello);font-weight:600;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.3rem,2.3vw,1.85rem);line-height:1.15;margin:1rem 0 2.25rem;max-width:28rem;color:var(--sumi)}
 .data{font-size:clamp(1.05rem,1.6vw,1.25rem);font-weight:500;margin:0}
 .dove{margin:.3rem 0 0;color:var(--pietra)}
-.manifesto{display:flex;justify-content:center;margin:0}
+.manifesto{display:flex;flex-direction:column;align-items:center;margin:0}
+.manifesto figcaption{width:min(100%,22rem);margin-top:.9rem;font-size:.75rem;line-height:1.5;color:var(--pietra)}
+.manifesto figcaption em{font-style:italic}
 .dono{font-family:var(--stampatello);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--ai);margin:0 0 1rem;padding-left:.9rem;border-left:3px solid var(--azzurro)}
 .manifesto img{width:min(100%,22rem);height:auto;box-shadow:0 18px 40px -22px rgba(31,74,68,.55)}
 @media (max-width:760px){
   .apertura{grid-template-columns:1fr;row-gap:3rem}
-  .manifesto{justify-content:flex-start}
+  .manifesto{align-items:flex-start}
   .manifesto img{width:min(78%,20rem)}
 }
 @media (prefers-reduced-motion:no-preference){
@@ -190,6 +192,14 @@ html:not(.bozza) [data-in-arrivo],html:not(.bozza) .segnaposto{display:none}
 .piede a{color:#fff}
 .piede p{margin:0 0 .4rem}
 
+/* ---------- loghi degli enti ---------- */
+.loghi-enti{background:#fff;border-top:1px solid var(--filo);padding:2.5rem var(--margine);display:flex;flex-wrap:wrap;gap:2rem 4rem;justify-content:center}
+.loghi-enti .gruppo p{margin:0 0 1rem;font-family:var(--stampatello);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:.875rem;color:var(--pietra)}
+.loghi-enti .gruppo{text-align:center}
+.loghi-enti .fila{display:flex;justify-content:center;align-items:center;gap:1.75rem;flex-wrap:wrap;min-height:60px}
+.loghi-enti img{width:auto;display:block}
+.ente-piede{display:flex;gap:1rem;align-items:flex-start}
+.ente-piede img{width:52px;height:auto;flex:none}
 /* ---------- ingrandimento ---------- */
 dialog.lente{border:0;padding:0;background:transparent;max-width:min(92vw,70rem);max-height:92vh}
 dialog.lente::backdrop{background:rgba(240,241,237,.96)}
@@ -264,12 +274,13 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
   <div class="titolo">
     <p class="dono">La donazione Ottorino Luciano Pomini</p>
     <h1 id="titolo-mostra">Segno<br>gesto<br>e materia</h1>
-    <p class="sottotitolo">nella pittura giapponese del II dopoguerra 1958-1960</p>
+    <p class="sottotitolo">nella pittura giapponese<br>del II dopoguerra 1958-1960</p>
     <p class="data">Inaugurazione sabato 21 novembre 2026, ore 17</p>
     <p class="dove">Villa Pomini, via don Luigi Testori 14, Castellanza</p>
   </div>
   <figure class="manifesto">
-        <img src="img/manifesto.png" width="377" height="539" alt="Manifesto della mostra Segno gesto e materia: superficie pittorica materica in toni di azzurro e verde, con le date e le informazioni della mostra.">
+        <img src="img/manifesto.jpg" width="800" height="1142" alt="Manifesto della mostra Segno gesto e materia: particolare di un dipinto materico in toni di azzurro e verde, con le date e le informazioni della mostra.">
+        <figcaption>Motonaga Sadamasa, <em>Pittura 1959</em>, 1959, particolare.<br>© Comune di Castellanza, ph. Giuseppe Biancofiore</figcaption>
   </figure>
 </section>
 
@@ -297,7 +308,6 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
       <dt>Audioracconto</dt><dd>Loquis</dd>
       <dt>Catalogo</dt><dd>Nomos Edizioni</dd>
     </dl>
-    <p class="enti"><strong>Con il patrocinio e il contributo di</strong> Regione Lombardia<br><strong>Con il patrocinio di</strong> Consolato Generale del Giappone a Milano, Provincia di Varese, Fondazione Varese Welcome<br><strong>Con la partecipazione di</strong> Besana Carpet Lab, ERCO</p>
   </div>
 </section>
 
@@ -467,11 +477,36 @@ dialog.lente::backdrop{background:rgba(240,241,237,.96)}
 
 </main>
 
+<section class="loghi-enti" aria-label="Enti e partner">
+  <div class="gruppo">
+    <p>Con il patrocinio e il contributo di</p>
+    <div class="fila"><img src="img/loghi/regione-lombardia.png" alt="Regione Lombardia" height="60" style="height:60px"></div>
+  </div>
+  <div class="gruppo">
+    <p>Con il patrocinio di</p>
+    <div class="fila">
+      <img src="img/loghi/consolato-giappone.png" alt="Consolato Generale del Giappone a Milano" height="60" style="height:60px">
+      <img src="img/loghi/provincia-varese.png" alt="Provincia di Varese" height="46" style="height:46px">
+      <img src="img/loghi/fondazione-varese-welcome.png" alt="Fondazione Varese Welcome" height="26" style="height:26px">
+    </div>
+  </div>
+  <div class="gruppo">
+    <p>Con la partecipazione di</p>
+    <div class="fila">
+      <img src="img/loghi/besana.png" alt="Besana Carpet Lab" height="40" style="height:40px">
+      <img src="img/loghi/erco.png" alt="ERCO" height="34" style="height:34px">
+    </div>
+  </div>
+</section>
+
 <footer class="piede">
-  <div>
+  <div class="ente-piede">
+    <img src="img/loghi/stemma-castellanza.png" alt="Stemma della Città di Castellanza" width="52" height="73">
+    <div>
     <p><strong>Città di Castellanza</strong></p>
     <p>Viale Rimembranze 4, 21053 Castellanza (VA)</p>
     <p>Ufficio Cultura, tel. 0331 526263</p>
+    </div>
   </div>
   <div>
     <p><a href="https://www.comune.castellanza.va.it/">Sito del Comune</a></p>
