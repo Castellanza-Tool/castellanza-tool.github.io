@@ -853,15 +853,15 @@
     8.896573
    ],
    "testo": "Obbligo di svolta a destra per chi arriva da via Piave",
-   "direzione": "left",
+   "direzione": "bottom",
    "spostamento": [
-    -16,
-    -30
+    -85,
+    48
    ],
-   "direzioneTelefono": "top",
+   "direzioneTelefono": "right",
    "spostamentoTelefono": [
-    0,
-    -24
+    40,
+    -50
    ]
   }
  ]
