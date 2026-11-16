@@ -6,7 +6,7 @@
   var ETICHETTE_TIPO = { viabilita: 'Viabilità', avviso: 'Avviso', urgente: 'Urgente', concluso: 'Concluso' };
   var REFRESH_MS = 60000;
   var FILE_DATI = 'dati.json';
-  var VERSIONE = '20261109a'; // deve coincidere con settings.versioneApp in dati.json e con ?v= in index.html
+  var VERSIONE = '20261116a'; // deve coincidere con settings.versioneApp in dati.json e con ?v= in index.html
 
   var map = L.map('map', { scrollWheelZoom: true }).setView(CENTRO, 15);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -29,7 +29,7 @@
     });
   }
   function paragrafi(t) {
-    return esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').split(/\n{2,}/).map(function (p) {
+    return esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>').split(/\n{2,}/).map(function (p) {
       var righe = p.split('\n');
       if (righe.every(function (r) { return /^- /.test(r); })) return '<ul class="elenco">' + righe.map(function (r) { return '<li>' + r.slice(2) + '</li>'; }).join('') + '</ul>'; // righe che iniziano con "- " = elenco puntato
       return '<p>' + p.replace(/\n/g, '<br>') + '</p>';
